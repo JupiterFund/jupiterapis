@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package jupiter.datastream.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.datastream.v1";
+
+message OrderQueue {
+  enum Market {
+    SHANGHAI = 0;
+    SHENZHEN = 1;
+    HONGKONG = 2;
+  };
+  enum Side {
+    BID = 0;
+    OFFER = 1;
+  };
+  string code = 1;
+  Market market = 2;
+  uint64 timestamp = 3;
+  Side orderSide = 4;
+  uint32 orderPrice = 5;
+  uint32 numOrders = 6;
+  repeated uint64 bidLevelQueue = 7;
+  repeated uint64 offerLevelQueue = 8;
+}
