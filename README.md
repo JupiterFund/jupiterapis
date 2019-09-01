@@ -8,7 +8,7 @@
 本地需安装Gradle构建应用
 
 ```
-git clone https://github.com/kevinprotoss/jupiterapis.git
+git clone https://github.com/JupiterFund/jupiterapis.git
 cd jupiterapis
 gradle clean build
 ```
@@ -27,7 +27,7 @@ gradle clean build
     - Golang:
 
 
-### 使用 jupiterapis
+### 依赖管理
 
 #### Gradle
 
@@ -36,7 +36,6 @@ gradle clean build
 ```
 allprojects {
     repositories {
-        ...
         maven { url 'https://jitpack.io' }
     }
 }
@@ -46,7 +45,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.kevinprotoss:jupiteraips:{{Tag}}'
+    implementation 'com.github.JupiterFund:jupiteraips:{{Tag}}'
 }
 ```
 
@@ -66,7 +65,7 @@ dependencies {
 
 ```
 <dependency>
-    <groupId>com.github.kevinprotoss</groupId>
+    <groupId>com.github.JupiterFund</groupId>
     <artifactId>jupiteraips</artifactId>
     <version>{{Tag}}</version>
 </dependency>
@@ -75,5 +74,5 @@ dependencies {
 请在`Tag`中修改为自己需要的版本号。如果Github Release中没有发布过任何版本，
 可以使用`master-SNAPSHOT`作为版本号，来获取最新更新。或者使用某次提交的哈希码。
 
-首次请求项目依赖，Jitpack会自动从私有库中获取代码，构建，
+首次请求项目依赖，Jitpack会自动从代码库中获取代码，构建，
 并提供构建后的部件(jar, aar 等)。
