@@ -14,60 +14,116 @@ message Quote {
   string code = 1;
   Market market = 2;
   uint64 timestamp = 3;
-  uint32 preClosePx = 4;
-  uint32 openPx = 5;
-  uint32 highPx = 6;
-  uint32 lowPx = 7;
-  uint32 lastPx = 8;
-  uint32 closePx = 9;
+  /**
+   * 上交所数据规范
+   */
+  // 昨收盘价 N(9,3)
+  uint64 preClosePx = 4;
+  // 开盘价 N(9,3)
+  uint64 openPx = 5;
+  // 最高价 N(9,3)
+  uint64 highPx = 6;
+  // 最低价 N(9,3)
+  uint64 lowPx = 7;
+  // 现价 N(9,3)
+  uint64 lastPx = 8;
+  // 今收盘价 N(9,3)
+  uint64 closePx = 9;
+  // 当前品种状态
   string instrumentStatus = 10;
   string tradingPhaseCode = 11;
+  // 成交总笔数 N(6,0) 深市数据不清楚
   uint64 numTrades = 12;
+  // 成交总量 N(20,3) TODO: 如何存储BitInteger?
   uint64 totalVolumeTrade = 13;
+  // 成交总金额 N(20,5) TODO: 如何存储BitInteger?
   uint64 totalValueTrade = 14;
+  // 委托买入总量 N(17,3) TODO: 如何存储BitInteger?
   uint64 totalBidQty = 15;
+  // 委托卖出总量 N(17,3) TODO: 如何存储BitInteger?
   uint64 totalOfferQty = 16;
-  uint32 weightedAvgBidPx = 17;
-  uint32 weightedAvgOfferPx = 18;
-  uint32 altWeightedAvgBidPx = 19;
-  uint32 altWeightedAvgOfferPx = 20;
-  // ETF 相关
-  int32 IOPV = 21;
-  uint32 etfBuyNumber = 22;
-  uint64 etfBuyAmount = 23;
-  uint64 etfBuyMoney = 24;
-  uint32 etfSellNumber = 25;
-  uint64 etfSellAmount = 26;
-  uint64 etfSellMoney = 27;
-  //
-  int32 yieldToMaturity = 28;
-  uint64 totalWarrantExecQty = 29;
-  uint64 warLowerPx = 30;
-  uint64 warUpperPx = 31;
+  // 加权平均委买价格 N(9,3)
+  uint64 weightedAvgBidPx = 17;
+  // 加权平均委卖价格 N(9,3)
+  uint64 weightedAvgOfferPx = 18;
+  // 债券加权平均委买价格 N(9,3)
+  uint64 altWeightedAvgBidPx = 19;
+  // 债券加权平均委卖价格 N(9,3)
+  uint64 altWeightedAvgOfferPx = 20;
+  // IOPV净值估值 N(9,3)
+  uint64 IOPV = 21;
+  // 到期收益率 N(6,4)
+  uint64 yieldToMaturity = 22;
+  // 权证执行的总数量 N(9,0) 深市数据不清楚
+  uint64 totalWarrantExecQty = 23;
+  // 权证跌停价格 N(9,3)
+  uint64 warLowerPx = 24;
+  // 权证涨停价格 N(9,3)
+  uint64 warUpperPx = 25;
+  /**
+   * QTS独有数据
+   */
+  // ETF申购笔数
+  uint32 etfBuyNumber = 26;
+  // ETF申购量
+  uint64 etfBuyAmount = 27;
+  // ETF申购额
+  uint64 etfBuyMoney = 28;
+  // ETF赎回笔数
+  uint32 etfSellNumber = 29;
+  // ETF赎回量
+  uint64 etfSellAmount = 30;
+  // ETF赎回额
+  uint64 etfSellMoney = 31;
+  // 买入撤单笔数
   uint32 withdrawBuyNumber = 32;
+  // 买入撤单量
   uint64 withdrawBuyAmount = 33;
+  // 买入撤单额
   uint64 withdrawBuyMoney = 34;
+  // 卖出撤单笔数
   uint32 withdrawSellNumber = 35;
+  // 卖出撤单量
   uint64 withdrawSellAmount = 36;
+  // 卖出撤单额
   uint64 withdrawSellMoney = 37;
+  // 买入总笔数
   uint32 totalBidNumber = 38;
+  // 卖出总笔数
   uint32 totalOfferNumber = 39;
+  // 买入成交最大等待时间
   uint32 bidTradeMaxDuration = 40;
+  // 卖出成交最大等待时间
   uint32 OfferTradeMaxDuration = 41;
+  // 买方委托价位数
   uint32 numBidOrders = 42;
+  // 卖方委托价位数
   uint32 numOfferOrders = 43;
-  // 十档行情
-  repeated uint32 bidPrice = 44;
+  // 委买价 N(9,3)
+  repeated uint64 bidPrice = 44;
+  // 委买量 N(9,0)
   repeated uint64 bidOrderQty = 45;
+  // 买入总委托笔数
   repeated uint32 bidNumOrders = 46;
-  repeated uint32 offerPrice = 47;
+  // 委卖价 N(9,3)
+  repeated uint64 offerPrice = 47;
+  // 委卖量 N(9,0)
   repeated uint64 offerOrderQty = 48;
+  // 卖出总委托笔数
   repeated uint32 offerNumOrders = 49;
-  // 深交所实时行情特有字段
-  uint32 priceUpLimit = 50;
-  uint32 priceDownLimit = 51;
-  uint32 priceUpDown1 = 52;
-  uint32 priceUpDown2 = 53;
+  /**
+   * 部分特殊字段
+   */
+  // 涨停价 N(9,3)
+  uint64 priceUpLimit = 50;
+  // 跌停价 N(9,3)
+  uint64 priceDownLimit = 51;
+  // 升跌1 N(9,3)
+  uint64 priceUpDown1 = 52;
+  // 升跌2 N(9,3)
+  uint64 priceUpDown2 = 53;
+  // 市盈率1
   uint32 peRatio1 = 54;
+  // 市盈率2
   uint32 peRatio2 = 55;
 }
