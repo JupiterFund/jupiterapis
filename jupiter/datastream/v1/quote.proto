@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
-import "datastream/v1/market.proto";
+import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.datastream.v1";

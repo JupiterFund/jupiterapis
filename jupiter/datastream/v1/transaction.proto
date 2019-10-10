@@ -2,15 +2,12 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
+import "jupiter/datastream/v1/market.proto";
+
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.datastream.v1";
 
 message Transaction {
-  enum Market {
-    SHANGHAI = 0;
-    SHENZHEN = 1;
-    HONGKONG = 2;
-  };
   enum Type {
     C = 0;
     F = 1;
@@ -22,7 +19,7 @@ message Transaction {
     UNKNOWN = 2;    // 未知
   };
   string code = 1;
-  Market market = 2;
+  jupiter.datastream.v1.MarketEnum.Market market = 2;
   uint64 timestamp = 3;
   uint32 tradeTime = 4;
   uint64 tradeIndex = 5;

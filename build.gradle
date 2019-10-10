@@ -35,8 +35,9 @@ dependencies {
 sourceSets {
   main {
     proto {
-      srcDir 'jupiter'
+      srcDir '.'
       include '**/*.proto'
+      exclude 'build/**'
     }
   }
 }
