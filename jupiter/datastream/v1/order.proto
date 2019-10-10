@@ -8,6 +8,17 @@ option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.datastream.v1";
 
 message Order {
+  enum OrderCode {
+    B = 0;
+    S = 1;
+    G = 2;
+    F = 3;
+  };
+  enum OrderType {
+    M = 0;
+    L = 1;
+    U = 2;
+  };
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
   uint64 timestamp = 3;
