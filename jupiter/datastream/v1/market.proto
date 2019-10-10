@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package jupiter.datastream.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.datastream.v1";
+
+// Container for enum describing possible markets.
+message MarketEnum {
+  enum Market {
+    SHANGHAI = 0;
+    SHENZHEN = 1;
+    HONGKONG = 2;
+  };
+}
