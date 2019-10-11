@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package jupiter.factor.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.factor.v1";
+
+message Pilot { 
+  // 9：30 买卖量比分位点
+  double quantityRatioQuantile = 1;
+  // 9：30 开盘价差分位点
+  double openPxDeltaQuantile = 2;
+  /**
+   * 不同时间点的上涨概率
+   * upProbability[0]: 9：30
+   * upProbability[1]: 10：00
+   * upProbability[2]: 10：30
+   * upProbability[3]: 11：00
+   * upProbability[4]: 11：30
+   * upProbability[5]: 13：00
+   * upProbability[6]: 15：00
+   */
+  repeated double upProbability = 3;
+}
