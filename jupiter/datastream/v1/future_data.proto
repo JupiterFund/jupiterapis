@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package jupiter.datastream.v1;
+
+import "jupiter/datastream/v1/market.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.datastream.v1";
+
+// 行情快照 - 期货/期权
+message FutureData {
+  string code = 1;
+  jupiter.datastream.v1.MarketEnum.Market market = 2;
+  uint64 timestamp = 3;
+  // 昨收盘价 N(9,3)
+  uint64 preClosePx = 4;
+  // 开盘价 N(9,3)
+  uint64 openPx = 5;
+  // 最高价 N(9,3)
+  uint64 highPx = 6;
+  // 最低价 N(9,3)
+  uint64 lowPx = 7;
+  // 现价 N(9,3)
+  uint64 lastPx = 8;
+  // 今收盘价 N(9,3)
+  uint64 closePx = 9;
+  // 成交总量 N(20,3) TODO: 如何存储BitInteger?
+  uint64 totalVolumeTrade = 10;
+  // 成交总金额 N(20,5) TODO: 如何存储BitInteger?
+  uint64 totalValueTrade = 11;
+  // 昨持仓
+  uint64 preOpenInterest = 12;
+  // 持仓总量
+  uint64 openInterest = 13;
+  // 昨结算
+  uint64 preSettlePrice = 14;
+  // 今结算
+  uint64 settlePrice = 15;
+  // 涨停价 N(9,3)
+  uint64 priceUpLimit = 16;
+  // 跌停价 N(9,3)
+  uint64 priceDownLimit = 17;
+  // 昨虚实度
+  uint32 preDelta = 18;
+  // 今虚实度
+  uint32 currDelta = 19;
+  // 申买价 N(9,3)
+  repeated uint64 bidPrice = 20;
+  // 申买量 N(9,0)
+  repeated uint64 bidQty = 21;
+  // 申卖价 N(9,3)
+  repeated uint64 offerPrice = 22;
+  // 申卖量 N(9,0)
+  repeated uint64 offerQty = 23;
+  // 波动性中断参考价
+  uint64 auctionPrice = 24;
+  // 波动性中断集合竞价虚拟匹配量
+  uint64 auctionQty = 25;
+  /**
+   * 部分特殊字段
+   */
+  // 郑商所期货均价
+  uint32 avgPrice = 26;
+}

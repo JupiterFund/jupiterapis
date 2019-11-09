@@ -7,7 +7,8 @@ import "jupiter/datastream/v1/market.proto";
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.datastream.v1";
 
-message Quote {
+// 行情快照 - 股票
+message StockData {
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
   uint64 timestamp = 3;
@@ -96,16 +97,16 @@ message Quote {
   uint32 numBidOrders = 42;
   // 卖方委托价位数
   uint32 numOfferOrders = 43;
-  // 委买价 N(9,3)
+  // 申买价 N(9,3)
   repeated uint64 bidPrice = 44;
-  // 委买量 N(9,0)
-  repeated uint64 bidOrderQty = 45;
+  // 申买量 N(9,0)
+  repeated uint64 bidQty = 45;
   // 买入总委托笔数
   repeated uint32 bidNumOrders = 46;
-  // 委卖价 N(9,3)
+  // 申卖价 N(9,3)
   repeated uint64 offerPrice = 47;
-  // 委卖量 N(9,0)
-  repeated uint64 offerOrderQty = 48;
+  // 申卖量 N(9,0)
+  repeated uint64 offerQty = 48;
   // 卖出总委托笔数
   repeated uint32 offerNumOrders = 49;
   /**
