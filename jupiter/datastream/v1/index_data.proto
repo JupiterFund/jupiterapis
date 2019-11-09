@@ -2,11 +2,14 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
+import "jupiter/datastream/v1/market.proto";
+
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.datastream.v1";
 
 // 行情快照 - 指数
 message IndexData {
   string code = 1;
-  uint64 timestamp = 2;s
+  jupiter.datastream.v1.MarketEnum.Market market = 2;
+  uint64 timestamp = 3;
 }
