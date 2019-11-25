@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package jupiter.strategy.base.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.strategy.base.v1";
+
+// 开平标志
+message OffsetEnum {
+  enum Offset {
+    // 开
+    OPEN = 0;
+    // 平
+    CLOSE = 1;
+    // 平今
+    CLOSETODAY = 2;
+    // 平昨
+    CLOSEYESTERDAY = 3;
+    // ???
+    // ForceClose = 4;
+  };
+}
