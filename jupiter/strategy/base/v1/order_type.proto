@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package jupiter.strategy.base.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.strategy.base.v1";
+
+// 订单类型
+message OrderTypeEnum {
+  enum OrderType {
+    // 市价
+    MARKET = 0;
+    // 限价
+    LIMIT = 1;
+    // 止损单
+    STOP = 2;
+    // Fill and Kill
+    FAK = 3;
+    // Fill or Kill
+    FOK = 4;
+    // 限价止损单
+    // ???
+    // STOPLIMIT = 3;
+  };
+}
