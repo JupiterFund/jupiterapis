@@ -3,6 +3,7 @@ syntax = "proto3";
 package jupiter.datastream.v1;
 
 import "jupiter/datastream/v1/market.proto";
+import "google/protobuf/timestamp.proto";
 
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.datastream.v1";
@@ -20,15 +21,17 @@ message Transaction {
   };
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  uint64 timestamp = 3;
-  uint32 tradeTime = 4;
-  uint64 tradeIndex = 5;
-  uint32 tradeChannel = 6;
-  uint32 tradePrice = 7;
-  uint64 tradeQty = 8;
-  uint64 tradeMoney = 9;
-  uint64 tradeBuyNo = 10;
-  uint64 tradeSellNo = 11;
-  Type tradeType = 12;
-  BSFlag tradeBSFlag = 13;
+  string actionDay = 3;
+  string tradingDay = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  uint32 tradeTime = 6;
+  uint64 tradeIndex = 7;
+  uint32 tradeChannel = 8;
+  uint32 tradePrice = 9;
+  uint64 tradeQty = 10;
+  uint64 tradeMoney = 11;
+  uint64 tradeBuyNo = 12;
+  uint64 tradeSellNo = 13;
+  Type tradeType = 14;
+  BSFlag tradeBSFlag = 15;
 }

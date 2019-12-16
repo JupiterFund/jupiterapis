@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
+import "google/protobuf/timestamp.proto";
 import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
@@ -11,54 +12,56 @@ option java_package = "com.nodeunify.jupiter.datastream.v1";
 message FutureData {
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  uint64 timestamp = 3;
+  string actionDay = 3;
+  string tradingDay = 4;
+  google.protobuf.Timestamp timestamp = 5;
   // 昨收盘价 N(9,3)
-  uint64 preClosePx = 4;
+  uint64 preClosePx = 6;
   // 开盘价 N(9,3)
-  uint64 openPx = 5;
+  uint64 openPx = 7;
   // 最高价 N(9,3)
-  uint64 highPx = 6;
+  uint64 highPx = 8;
   // 最低价 N(9,3)
-  uint64 lowPx = 7;
+  uint64 lowPx = 9;
   // 现价 N(9,3)
-  uint64 lastPx = 8;
+  uint64 lastPx = 10;
   // 今收盘价 N(9,3)
-  uint64 closePx = 9;
+  uint64 closePx = 11;
   // 成交总量 N(20,3) TODO: 如何存储BitInteger?
-  uint64 totalVolumeTrade = 10;
+  uint64 totalVolumeTrade = 12;
   // 成交总金额 N(20,5) TODO: 如何存储BitInteger?
-  uint64 totalValueTrade = 11;
+  uint64 totalValueTrade = 13;
   // 昨持仓
-  uint64 preOpenInterest = 12;
+  uint64 preOpenInterest = 14;
   // 持仓总量
-  uint64 openInterest = 13;
+  uint64 openInterest = 15;
   // 昨结算
-  uint64 preSettlePrice = 14;
+  uint64 preSettlePrice = 16;
   // 今结算
-  uint64 settlePrice = 15;
+  uint64 settlePrice = 17;
   // 涨停价 N(9,3)
-  uint64 priceUpLimit = 16;
+  uint64 priceUpLimit = 18;
   // 跌停价 N(9,3)
-  uint64 priceDownLimit = 17;
+  uint64 priceDownLimit = 19;
   // 昨虚实度
-  uint32 preDelta = 18;
+  uint32 preDelta = 20;
   // 今虚实度
-  uint32 currDelta = 19;
+  uint32 currDelta = 21;
   // 申买价 N(9,3)
-  repeated uint64 bidPrice = 20;
+  repeated uint64 bidPrice = 22;
   // 申买量 N(9,0)
-  repeated uint64 bidQty = 21;
+  repeated uint64 bidQty = 23;
   // 申卖价 N(9,3)
-  repeated uint64 offerPrice = 22;
+  repeated uint64 offerPrice = 24;
   // 申卖量 N(9,0)
-  repeated uint64 offerQty = 23;
+  repeated uint64 offerQty = 25;
   // 波动性中断参考价
-  uint64 auctionPrice = 24;
+  uint64 auctionPrice = 26;
   // 波动性中断集合竞价虚拟匹配量
-  uint64 auctionQty = 25;
+  uint64 auctionQty = 27;
   /**
    * 部分特殊字段
    */
   // 郑商所期货均价
-  uint32 avgPrice = 26;
+  uint32 avgPrice = 28;
 }
