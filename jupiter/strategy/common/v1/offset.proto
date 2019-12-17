@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package jupiter.strategy.base.v1;
+package jupiter.strategy.common.v1;
 
 option java_multiple_files = true;
-option java_package = "com.nodeunify.jupiter.strategy.base.v1";
+option java_package = "com.nodeunify.jupiter.strategy.common.v1";
 
 // 开平标志
 message OffsetEnum {

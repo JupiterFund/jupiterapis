@@ -2,7 +2,8 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
-import "google/protobuf/timestamp.proto";
+import "jupiter/type/date.proto";
+import "jupiter/type/timeofday.proto";
 import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
@@ -22,9 +23,9 @@ message Order {
   };
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  string actionDay = 3;
-  string tradingDay = 4;
-  google.protobuf.Timestamp timestamp = 5;
+  jupiter.type.Date actionDay = 3;
+  jupiter.type.Date tradingDay = 4;
+  jupiter.type.TimeOfDay time = 5;
   uint32 orderTime = 6;
   uint64 orderIndex = 7;
   uint32 orderChannel = 8;

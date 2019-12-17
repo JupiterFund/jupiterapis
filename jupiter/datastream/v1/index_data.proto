@@ -2,7 +2,8 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
-import "google/protobuf/timestamp.proto";
+import "jupiter/type/date.proto";
+import "jupiter/type/timeofday.proto";
 import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
@@ -12,7 +13,7 @@ option java_package = "com.nodeunify.jupiter.datastream.v1";
 message IndexData {
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  string actionDay = 3;
-  string tradingDay = 4;
-  google.protobuf.Timestamp timestamp = 5;
+  jupiter.type.Date actionDay = 3;
+  jupiter.type.Date tradingDay = 4;
+  jupiter.type.TimeOfDay time = 5;
 }

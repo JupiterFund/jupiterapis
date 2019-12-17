@@ -3,9 +3,9 @@ syntax = "proto3";
 package jupiter.strategy.signal.v1;
 
 import "google/protobuf/timestamp.proto";
-import "jupiter/strategy/base/v1/direction.proto";
-import "jupiter/strategy/base/v1/offset.proto";
-import "jupiter/strategy/base/v1/order_type.proto";
+import "jupiter/strategy/common/v1/direction.proto";
+import "jupiter/strategy/common/v1/offset.proto";
+import "jupiter/strategy/common/v1/order_type.proto";
 
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.strategy.signal.v1";
@@ -19,9 +19,9 @@ message InsertOrder {
   google.protobuf.Timestamp timestamp = 1;
   string code = 2;
   string exchangeID = 3;
-  jupiter.strategy.base.v1.DirectionEnum.Direction direction = 4;
-  jupiter.strategy.base.v1.OffsetEnum.Offset offset = 5;
-  jupiter.strategy.base.v1.OrderTypeEnum.OrderType OrderType = 6;
+  jupiter.strategy.common.v1.DirectionEnum.Direction direction = 4;
+  jupiter.strategy.common.v1.OffsetEnum.Offset offset = 5;
+  jupiter.strategy.common.v1.OrderTypeEnum.OrderType OrderType = 6;
   double limitPrice = 7;
   double stopPrice = 8;
   uint64 volume = 9;
