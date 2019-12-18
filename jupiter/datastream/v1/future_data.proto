@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
-import "jupiter/type/date.proto";
-import "jupiter/type/timeofday.proto";
+import "google/protobuf/timestamp.proto";
 import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
@@ -13,56 +12,61 @@ option java_package = "com.nodeunify.jupiter.datastream.v1";
 message FutureData {
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  jupiter.type.Date actionDay = 3;
-  jupiter.type.Date tradingDay = 4;
-  jupiter.type.TimeOfDay time = 5;
+  // 自然日 yyyyMMdd
+  uint32 date = 3;
+  // HHmmssSSS
+  uint32 time = 4;
+  // 由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息
+  google.protobuf.Timestamp timestamp = 5;
+  // 交易日期 yyyyMMdd
+  uint32 tradeDate = 6;
   // 昨收盘价 N(9,3)
-  uint64 preClosePx = 6;
+  uint64 preClosePx = 7;
   // 开盘价 N(9,3)
-  uint64 openPx = 7;
+  uint64 openPx = 8;
   // 最高价 N(9,3)
-  uint64 highPx = 8;
+  uint64 highPx = 9;
   // 最低价 N(9,3)
-  uint64 lowPx = 9;
+  uint64 lowPx = 10;
   // 现价 N(9,3)
-  uint64 lastPx = 10;
+  uint64 lastPx = 11;
   // 今收盘价 N(9,3)
-  uint64 closePx = 11;
+  uint64 closePx = 12;
   // 成交总量 N(20,3) TODO: 如何存储BitInteger?
-  uint64 totalVolumeTrade = 12;
+  uint64 totalVolumeTrade = 13;
   // 成交总金额 N(20,5) TODO: 如何存储BitInteger?
-  uint64 totalValueTrade = 13;
+  uint64 totalValueTrade = 14;
   // 昨持仓
-  uint64 preOpenInterest = 14;
+  uint64 preOpenInterest = 15;
   // 持仓总量
-  uint64 openInterest = 15;
+  uint64 openInterest = 16;
   // 昨结算
-  uint64 preSettlePrice = 16;
+  uint64 preSettlePrice = 17;
   // 今结算
-  uint64 settlePrice = 17;
+  uint64 settlePrice = 18;
   // 涨停价 N(9,3)
-  uint64 priceUpLimit = 18;
+  uint64 priceUpLimit = 19;
   // 跌停价 N(9,3)
-  uint64 priceDownLimit = 19;
+  uint64 priceDownLimit = 20;
   // 昨虚实度
-  uint32 preDelta = 20;
+  uint32 preDelta = 21;
   // 今虚实度
-  uint32 currDelta = 21;
+  uint32 currDelta = 22;
   // 申买价 N(9,3)
-  repeated uint64 bidPrice = 22;
+  repeated uint64 bidPrice = 23;
   // 申买量 N(9,0)
-  repeated uint64 bidQty = 23;
+  repeated uint64 bidQty = 24;
   // 申卖价 N(9,3)
-  repeated uint64 offerPrice = 24;
+  repeated uint64 offerPrice = 25;
   // 申卖量 N(9,0)
-  repeated uint64 offerQty = 25;
+  repeated uint64 offerQty = 26;
   // 波动性中断参考价
-  uint64 auctionPrice = 26;
+  uint64 auctionPrice = 27;
   // 波动性中断集合竞价虚拟匹配量
-  uint64 auctionQty = 27;
+  uint64 auctionQty = 28;
   /**
    * 部分特殊字段
    */
   // 郑商所期货均价
-  uint32 avgPrice = 28;
+  uint32 avgPrice = 29;
 }

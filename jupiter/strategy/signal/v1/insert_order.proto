@@ -6,6 +6,7 @@ import "google/protobuf/timestamp.proto";
 import "jupiter/strategy/common/v1/direction.proto";
 import "jupiter/strategy/common/v1/offset.proto";
 import "jupiter/strategy/common/v1/order_type.proto";
+import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.strategy.signal.v1";
@@ -16,14 +17,20 @@ option java_package = "com.nodeunify.jupiter.strategy.signal.v1";
 // 3. CTP本身只支持预埋单，允许设置时间有效条件以及订单量条件等
 // 4. 条件单应该属于下单程序内实现
 message InsertOrder {
-  google.protobuf.Timestamp timestamp = 1;
-  string code = 2;
-  string exchangeID = 3;
-  jupiter.strategy.common.v1.DirectionEnum.Direction direction = 4;
-  jupiter.strategy.common.v1.OffsetEnum.Offset offset = 5;
-  jupiter.strategy.common.v1.OrderTypeEnum.OrderType OrderType = 6;
-  double limitPrice = 7;
-  double stopPrice = 8;
-  uint64 volume = 9;
-  string algorithm = 10;
+  string code = 1;
+  jupiter.datastream.v1.MarketEnum.Market market = 2;
+  // 自然日 yyyyMMdd
+  uint32 date = 3;
+  // HHmmssSSS
+  uint32 time = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  jupiter.strategy.common.v1.DirectionEnum.Direction direction = 6;
+  jupiter.strategy.common.v1.OffsetEnum.Offset offset = 7;
+  jupiter.strategy.common.v1.OrderTypeEnum.OrderType OrderType = 8;
+  double limitPrice = 9;
+  double stopPrice = 10;
+  uint64 volume = 11;
+  string algorithm = 12;
+  // 和Market可以是否可以为同一字段？
+  string exchangeID = 13;
 }

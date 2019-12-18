@@ -4,6 +4,7 @@ package jupiter.strategy.common.v1;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/struct.proto";
+import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.strategy.common.v1";
@@ -21,8 +22,13 @@ option java_package = "com.nodeunify.jupiter.strategy.common.v1";
  * 
  */
 message Factor {
-  google.protobuf.Timestamp timestamp = 1;
-  string code = 2;
-  string name = 3;
-  google.protobuf.Value value = 4;
+  string code = 1;
+  jupiter.datastream.v1.MarketEnum.Market market = 2;
+  // 自然日 yyyyMMdd
+  uint32 date = 3;
+  // HHmmssSSS
+  uint32 time = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  string name = 6;
+  google.protobuf.Value value = 7;
 }
