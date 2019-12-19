@@ -1,14 +1,11 @@
 # Jupiter APIs 
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/JupiterFund/jupiterapis) 
 [![](https://jitpack.io/v/JupiterFund/jupiterapis.svg)](https://jitpack.io/#JupiterFund/jupiterapis) 
 [![](https://jitci.com/gh/JupiterFund/jupiterapis/svg)](https://jitci.com/gh/JupiterFund/jupiterapis)
 
 此仓库包含所有Jupiter APIs的接口定义。此定义同时支持REST和gRPC协议。
 阅读这些接口定义，可以帮助更好理解和有效使用Jupiter APIs。同样接口定义文件可以通过使用
 很多开源的工具，自动生成客户端库或者客户端所需的基础套件。
-
-
-## 开发
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JupiterFund/jupiterapis)
 
 
 ## 编译及发布
