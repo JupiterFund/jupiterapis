@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
+import "google/protobuf/timestamp.proto";
 import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
@@ -11,117 +12,124 @@ option java_package = "com.nodeunify.jupiter.datastream.v1";
 message StockData {
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  uint64 timestamp = 3;
+  // 自然日 yyyyMMdd
+  uint32 date = 3;
+  // HHmmssSSS
+  uint32 time = 4;
+  // 由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息
+  google.protobuf.Timestamp timestamp = 5;
+  // 交易日期 yyyyMMdd
+  uint32 tradeDate = 6;
   /**
    * 上交所数据规范
    */
   // 昨收盘价 N(9,3)
-  uint64 preClosePx = 4;
+  uint64 preClosePx = 7;
   // 开盘价 N(9,3)
-  uint64 openPx = 5;
+  uint64 openPx = 8;
   // 最高价 N(9,3)
-  uint64 highPx = 6;
+  uint64 highPx = 9;
   // 最低价 N(9,3)
-  uint64 lowPx = 7;
+  uint64 lowPx = 10;
   // 现价 N(9,3)
-  uint64 lastPx = 8;
+  uint64 lastPx = 11;
   // 今收盘价 N(9,3)
-  uint64 closePx = 9;
+  uint64 closePx = 12;
   // 当前品种状态
-  string instrumentStatus = 10;
-  string tradingPhaseCode = 11;
+  string instrumentStatus = 13;
+  string tradingPhaseCode = 14;
   // 成交总笔数 N(6,0) 深市数据不清楚
-  uint64 numTrades = 12;
+  uint64 numTrades = 15;
   // 成交总量 N(20,3) TODO: 如何存储BitInteger?
-  uint64 totalVolumeTrade = 13;
+  uint64 totalVolumeTrade = 16;
   // 成交总金额 N(20,5) TODO: 如何存储BitInteger?
-  uint64 totalValueTrade = 14;
+  uint64 totalValueTrade = 17;
   // 委托买入总量 N(17,3) TODO: 如何存储BitInteger?
-  uint64 totalBidQty = 15;
+  uint64 totalBidQty = 18;
   // 委托卖出总量 N(17,3) TODO: 如何存储BitInteger?
-  uint64 totalOfferQty = 16;
+  uint64 totalOfferQty = 19;
   // 加权平均委买价格 N(9,3)
-  uint64 weightedAvgBidPx = 17;
+  uint64 weightedAvgBidPx = 20;
   // 加权平均委卖价格 N(9,3)
-  uint64 weightedAvgOfferPx = 18;
+  uint64 weightedAvgOfferPx = 21;
   // 债券加权平均委买价格 N(9,3)
-  uint64 altWeightedAvgBidPx = 19;
+  uint64 altWeightedAvgBidPx = 22;
   // 债券加权平均委卖价格 N(9,3)
-  uint64 altWeightedAvgOfferPx = 20;
+  uint64 altWeightedAvgOfferPx = 23;
   // IOPV净值估值 N(9,3)
-  uint64 IOPV = 21;
+  uint64 IOPV = 24;
   // 到期收益率 N(6,4)
-  uint64 yieldToMaturity = 22;
+  uint64 yieldToMaturity = 25;
   // 权证执行的总数量 N(9,0) 深市数据不清楚
-  uint64 totalWarrantExecQty = 23;
+  uint64 totalWarrantExecQty = 26;
   // 权证跌停价格 N(9,3)
-  uint64 warLowerPx = 24;
+  uint64 warLowerPx = 27;
   // 权证涨停价格 N(9,3)
-  uint64 warUpperPx = 25;
+  uint64 warUpperPx = 28;
   /**
    * QTS独有数据
    */
   // ETF申购笔数
-  uint32 etfBuyNumber = 26;
+  uint32 etfBuyNumber = 29;
   // ETF申购量
-  uint64 etfBuyAmount = 27;
+  uint64 etfBuyAmount = 30;
   // ETF申购额
-  uint64 etfBuyMoney = 28;
+  uint64 etfBuyMoney = 31;
   // ETF赎回笔数
-  uint32 etfSellNumber = 29;
+  uint32 etfSellNumber = 32;
   // ETF赎回量
-  uint64 etfSellAmount = 30;
+  uint64 etfSellAmount = 33;
   // ETF赎回额
-  uint64 etfSellMoney = 31;
+  uint64 etfSellMoney = 34;
   // 买入撤单笔数
-  uint32 withdrawBuyNumber = 32;
+  uint32 withdrawBuyNumber = 35;
   // 买入撤单量
-  uint64 withdrawBuyAmount = 33;
+  uint64 withdrawBuyAmount = 36;
   // 买入撤单额
-  uint64 withdrawBuyMoney = 34;
+  uint64 withdrawBuyMoney = 37;
   // 卖出撤单笔数
-  uint32 withdrawSellNumber = 35;
+  uint32 withdrawSellNumber = 38;
   // 卖出撤单量
-  uint64 withdrawSellAmount = 36;
+  uint64 withdrawSellAmount = 39;
   // 卖出撤单额
-  uint64 withdrawSellMoney = 37;
+  uint64 withdrawSellMoney = 40;
   // 买入总笔数
-  uint32 totalBidNumber = 38;
+  uint32 totalBidNumber = 41;
   // 卖出总笔数
-  uint32 totalOfferNumber = 39;
+  uint32 totalOfferNumber = 42;
   // 买入成交最大等待时间
-  uint32 bidTradeMaxDuration = 40;
+  uint32 bidTradeMaxDuration = 43;
   // 卖出成交最大等待时间
-  uint32 OfferTradeMaxDuration = 41;
+  uint32 OfferTradeMaxDuration = 44;
   // 买方委托价位数
-  uint32 numBidOrders = 42;
+  uint32 numBidOrders = 45;
   // 卖方委托价位数
-  uint32 numOfferOrders = 43;
+  uint32 numOfferOrders = 46;
   // 申买价 N(9,3)
-  repeated uint64 bidPrice = 44;
+  repeated uint64 bidPrice = 47;
   // 申买量 N(9,0)
-  repeated uint64 bidQty = 45;
+  repeated uint64 bidQty = 48;
   // 买入总委托笔数
-  repeated uint32 bidNumOrders = 46;
+  repeated uint32 bidNumOrders = 49;
   // 申卖价 N(9,3)
-  repeated uint64 offerPrice = 47;
+  repeated uint64 offerPrice = 50;
   // 申卖量 N(9,0)
-  repeated uint64 offerQty = 48;
+  repeated uint64 offerQty = 51;
   // 卖出总委托笔数
-  repeated uint32 offerNumOrders = 49;
+  repeated uint32 offerNumOrders = 52;
   /**
    * 部分特殊字段
    */
   // 涨停价 N(9,3)
-  uint64 priceUpLimit = 50;
+  uint64 priceUpLimit = 53;
   // 跌停价 N(9,3)
-  uint64 priceDownLimit = 51;
+  uint64 priceDownLimit = 54;
   // 升跌1 N(9,3)
-  uint64 priceUpDown1 = 52;
+  uint64 priceUpDown1 = 55;
   // 升跌2 N(9,3)
-  uint64 priceUpDown2 = 53;
+  uint64 priceUpDown2 = 56;
   // 市盈率1
-  uint32 peRatio1 = 54;
+  uint32 peRatio1 = 57;
   // 市盈率2
-  uint32 peRatio2 = 55;
+  uint32 peRatio2 = 58;
 }

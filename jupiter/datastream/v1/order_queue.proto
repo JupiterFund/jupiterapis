@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package jupiter.datastream.v1;
 
+import "google/protobuf/timestamp.proto";
 import "jupiter/datastream/v1/market.proto";
 
 option java_multiple_files = true;
@@ -14,10 +15,17 @@ message OrderQueue {
   };
   string code = 1;
   jupiter.datastream.v1.MarketEnum.Market market = 2;
-  uint64 timestamp = 3;
-  Side orderSide = 4;
-  uint32 orderPrice = 5;
-  uint32 numOrders = 6;
-  repeated uint64 bidLevelQueue = 7;
-  repeated uint64 offerLevelQueue = 8;
+  // 自然日 yyyyMMdd
+  uint32 date = 3;
+  // HHmmssSSS
+  uint32 time = 4;
+  // 由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息
+  google.protobuf.Timestamp timestamp = 5;
+  // 交易日期 yyyyMMdd
+  uint32 tradeDate = 6;
+  Side orderSide = 7;
+  uint32 orderPrice = 8;
+  uint32 numOrders = 9;
+  repeated uint64 bidLevelQueue = 10;
+  repeated uint64 offerLevelQueue = 11;
 }
