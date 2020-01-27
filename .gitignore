@@ -15,3 +15,7 @@ build
 
 # Ignore Eclipse settings
 .settings
+
+# Ignore Protoc output directory
+gen
+
