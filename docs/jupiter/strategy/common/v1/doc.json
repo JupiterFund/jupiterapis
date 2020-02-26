@@ -1,0 +1,420 @@
+{
+  "files": [
+    {
+      "name": "jupiter/strategy/common/v1/direction.proto",
+      "description": "",
+      "package": "jupiter.strategy.common.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "Direction",
+          "longName": "DirectionEnum.Direction",
+          "fullName": "jupiter.strategy.common.v1.DirectionEnum.Direction",
+          "description": "",
+          "values": [
+            {
+              "name": "BUY",
+              "number": "0",
+              "description": "多"
+            },
+            {
+              "name": "SELL",
+              "number": "1",
+              "description": "空"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "DirectionEnum",
+          "longName": "DirectionEnum",
+          "fullName": "jupiter.strategy.common.v1.DirectionEnum",
+          "description": "买卖方向",
+          "hasExtensions": false,
+          "hasFields": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "jupiter/strategy/common/v1/factor.proto",
+      "description": "",
+      "package": "jupiter.strategy.common.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "Factor",
+          "longName": "Factor",
+          "fullName": "jupiter.strategy.common.v1.Factor",
+          "description": "例如：\ncode: IF\nname: 买卖量比分位点\nvalue: 0.2\n\ncode: 600400\nname: 分位点上涨概率\nvalue: [0.45, 0.36, 0.22, 0.24, 0.21]",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "code",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "market",
+              "description": "",
+              "label": "",
+              "type": "Market",
+              "longType": "jupiter.datastream.v1.MarketEnum.Market",
+              "fullType": "jupiter.datastream.v1.MarketEnum.Market",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "date",
+              "description": "自然日 yyyyMMdd",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "time",
+              "description": "HHmmssSSS",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "timestamp",
+              "description": "",
+              "label": "",
+              "type": "Timestamp",
+              "longType": "google.protobuf.Timestamp",
+              "fullType": "google.protobuf.Timestamp",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "value",
+              "description": "",
+              "label": "",
+              "type": "Value",
+              "longType": "google.protobuf.Value",
+              "fullType": "google.protobuf.Value",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "jupiter/strategy/common/v1/offset.proto",
+      "description": "",
+      "package": "jupiter.strategy.common.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "Offset",
+          "longName": "OffsetEnum.Offset",
+          "fullName": "jupiter.strategy.common.v1.OffsetEnum.Offset",
+          "description": "",
+          "values": [
+            {
+              "name": "OPEN",
+              "number": "0",
+              "description": "开"
+            },
+            {
+              "name": "CLOSE",
+              "number": "1",
+              "description": "平"
+            },
+            {
+              "name": "CLOSETODAY",
+              "number": "2",
+              "description": "平今"
+            },
+            {
+              "name": "CLOSEYESTERDAY",
+              "number": "3",
+              "description": "平昨???ForceClose = 4;"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "OffsetEnum",
+          "longName": "OffsetEnum",
+          "fullName": "jupiter.strategy.common.v1.OffsetEnum",
+          "description": "开平标志",
+          "hasExtensions": false,
+          "hasFields": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "jupiter/strategy/common/v1/order_type.proto",
+      "description": "",
+      "package": "jupiter.strategy.common.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "OrderType",
+          "longName": "OrderTypeEnum.OrderType",
+          "fullName": "jupiter.strategy.common.v1.OrderTypeEnum.OrderType",
+          "description": "",
+          "values": [
+            {
+              "name": "MARKET",
+              "number": "0",
+              "description": "市价"
+            },
+            {
+              "name": "LIMIT",
+              "number": "1",
+              "description": "限价"
+            },
+            {
+              "name": "STOP",
+              "number": "2",
+              "description": "止损单"
+            },
+            {
+              "name": "FAK",
+              "number": "3",
+              "description": "Fill and Kill"
+            },
+            {
+              "name": "FOK",
+              "number": "4",
+              "description": "Fill or Kill\n\n限价止损单\n???\nSTOPLIMIT = 3;"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "OrderTypeEnum",
+          "longName": "OrderTypeEnum",
+          "fullName": "jupiter.strategy.common.v1.OrderTypeEnum",
+          "description": "订单类型",
+          "hasExtensions": false,
+          "hasFields": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    }
+  ],
+  "scalarValueTypes": [
+    {
+      "protoType": "double",
+      "notes": "",
+      "cppType": "double",
+      "csType": "double",
+      "goType": "float64",
+      "javaType": "double",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "float",
+      "notes": "",
+      "cppType": "float",
+      "csType": "float",
+      "goType": "float32",
+      "javaType": "float",
+      "phpType": "float",
+      "pythonType": "float",
+      "rubyType": "Float"
+    },
+    {
+      "protoType": "int32",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "int64",
+      "notes": "Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "uint32",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "uint64",
+      "notes": "Uses variable-length encoding.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint32",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sint64",
+      "notes": "Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "fixed32",
+      "notes": "Always four bytes. More efficient than uint32 if values are often greater than 2^28.",
+      "cppType": "uint32",
+      "csType": "uint",
+      "goType": "uint32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "fixed64",
+      "notes": "Always eight bytes. More efficient than uint64 if values are often greater than 2^56.",
+      "cppType": "uint64",
+      "csType": "ulong",
+      "goType": "uint64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "sfixed32",
+      "notes": "Always four bytes.",
+      "cppType": "int32",
+      "csType": "int",
+      "goType": "int32",
+      "javaType": "int",
+      "phpType": "integer",
+      "pythonType": "int",
+      "rubyType": "Bignum or Fixnum (as required)"
+    },
+    {
+      "protoType": "sfixed64",
+      "notes": "Always eight bytes.",
+      "cppType": "int64",
+      "csType": "long",
+      "goType": "int64",
+      "javaType": "long",
+      "phpType": "integer/string",
+      "pythonType": "int/long",
+      "rubyType": "Bignum"
+    },
+    {
+      "protoType": "bool",
+      "notes": "",
+      "cppType": "bool",
+      "csType": "bool",
+      "goType": "bool",
+      "javaType": "boolean",
+      "phpType": "boolean",
+      "pythonType": "boolean",
+      "rubyType": "TrueClass/FalseClass"
+    },
+    {
+      "protoType": "string",
+      "notes": "A string must always contain UTF-8 encoded or 7-bit ASCII text.",
+      "cppType": "string",
+      "csType": "string",
+      "goType": "string",
+      "javaType": "String",
+      "phpType": "string",
+      "pythonType": "str/unicode",
+      "rubyType": "String (UTF-8)"
+    },
+    {
+      "protoType": "bytes",
+      "notes": "May contain any arbitrary sequence of bytes.",
+      "cppType": "string",
+      "csType": "ByteString",
+      "goType": "[]byte",
+      "javaType": "ByteString",
+      "phpType": "string",
+      "pythonType": "str",
+      "rubyType": "String (ASCII-8BIT)"
+    }
+  ]
+}
