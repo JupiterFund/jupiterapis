@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package jupiter.monitoring.dashboard.v1;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.monitoring.dashboard.v1";
+
+message GetFactorStreamResponse {
+  // jupiter.strategy.common.v1.Factor
+  bytes data = 1;
+}
+
+service DashboardsService {
+  rpc GetFactorStream (google.protobuf.Empty) returns (stream GetFactorStreamResponse) {}
+}
