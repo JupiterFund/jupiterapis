@@ -1,0 +1,23 @@
+{
+  "name": "jupiterapis",
+  "version": "0.1.0",
+  "description": "[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/JupiterFund/jupiterapis)  [![](https://jitpack.io/v/JupiterFund/jupiterapis.svg)](https://jitpack.io/#JupiterFund/jupiterapis)  [![](https://jitci.com/gh/JupiterFund/jupiterapis/svg)](https://jitci.com/gh/JupiterFund/jupiterapis)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JupiterFund/jupiterapis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JupiterFund/jupiterapis/issues"
+  },
+  "homepage": "https://github.com/JupiterFund/jupiterapis#readme"
+}

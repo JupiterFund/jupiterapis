@@ -10,6 +10,5 @@ RUN entrypoint.sh -d . -l java
 # Error: Missing Input File
 #RUN entrypoint.sh -d . -l go
 RUN entrypoint.sh -d . -l node
+RUN entrypoint.sh -d . -l web
 RUN entrypoint.sh -d . -l ruby
-
-
