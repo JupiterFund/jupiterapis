@@ -18,5 +18,5 @@ message GetByteStreamResponse {
 
 service DashboardsService {
   // 订阅实时因子数据流
-  rpc GetByteStream (GetByteStreamRequest) returns (stream GetFactorStreamResponse) {}
+  rpc GetByteStream (GetByteStreamRequest) returns (stream GetByteStreamResponse) {}
 }
