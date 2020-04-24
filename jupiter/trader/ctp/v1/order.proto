@@ -103,6 +103,25 @@ message Order {
     // (char)'H' 买一价小于等于条件价
     BID_PRICE_LESSER_EQUAL_STOP_PRICE = 15;
   }
+  // 强平原因类型
+  enum ForceCloseReason {
+    // (char)'0' 非强平
+    NOT_FORCE_CLOSE = 0;
+    // (char)'1' 资金不足
+    LACK_DEPOSIT = 1;
+    // (char)'2' 客户超仓
+    CLIENT_OVER_POSITION_LIMIT = 2;
+    // (char)'3' 会员超仓
+    MEMBER_OVER_POSITION_LIMIT = 3;
+    // (char)'4' 持仓非整数倍
+    NOT_MULTIPLE = 4;
+    // (char)'5' 违规
+    VIOLATION = 5;
+    // (char)'6' 其它
+    OTHER = 6;
+    // (char)'7' 自然人临近交割
+    PERSON_DELIV = 7;
+  };
   // 报单提交状态类型
   enum OrderSubmitStatus {
     // (char)'0' 已经提交
@@ -197,8 +216,8 @@ message Order {
   ContingentCondition contingentCondition = 16;
   // 止损价
   uint64 stopPrice = 17;
-  // 强平原因 *
-  string forceCloseReason = 18;
+  // 强平原因
+  ForceCloseReason forceCloseReason = 18;
   // 自动挂起标志
   string isAutoSuspend = 19;
   // 业务单元
