@@ -21,6 +21,6 @@ message OffsetFlagEnum {
     // (char)'5' 强减
     FORCE_OFF = 5;
     // (char)'6' 本地强平
-    LocalForceClose = 6;
+    LOCAL_FORCE_CLOSE = 6;
   };
 }

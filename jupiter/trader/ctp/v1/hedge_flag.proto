@@ -9,10 +9,10 @@ option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
 message HedgeFlagEnum {
   enum HedgeFlag {
     // (char)'1' 投机
-    Speculation = 0;
+    SPECULATION = 0;
     // (char)'2' 套利
-    Arbitrage = 1;
+    ARBITRAGE = 1;
     // (char)'3' 套保
-    Hedge = 2;
+    HEDGE = 2;
   };
 }
