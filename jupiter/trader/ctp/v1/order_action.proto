@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 报单操作
+message OrderAction {
+  // 操作标志类型
+  enum ActionFlag {
+    // (char)'0' 删除
+    DELETE = 0;
+    // (char)'3' 修改
+    MODIFY = 1;
+  };
+  // 报单操作状态类型
+  enum OrderActionStatus {
+    // (char)'a' 已经提交
+    SUBMITTED = 0;
+    // (char)'b' 已经接受
+    ACCEPTED = 1;
+    // (char)'c' 已经被拒绝
+    REJECTED = 2;
+  };
+  // 经纪公司代码
+  string brokerID = 1;
+  // 投资者代码
+  string investorID = 2;
+  // 合约代码
+  string instrumentID = 3;
+  // 报单操作引用
+  uint32 orderActionRef = 4;
+  // 报单引用
+  string orderRef = 5;
+  // 请求编号
+  uint32 requestID = 6;
+  // 前置编号
+  uint32 frontID = 7;
+  // 会话编号
+  uint32 sessionID = 8;
+  // 交易所代码
+  string exchangeID = 9;
+  // 报单编号
+  string orderSysID = 10;
+  // 操作标志
+  ActionFlag actionFlag = 11;
+  // 价格
+  uint64 limitPrice = 12;
+  // 数量变化
+  uint32 volumeChange = 13;
+  //
+  string investUnitID = 14;
+  // ip地址
+  string ipAddress = 15;
+  // mac地址
+  string macAddress = 16;
+  // 操作日期
+  string actionDate = 17;
+  // 操作时间
+  string actionTime = 18;
+  // 交易所交易员代码
+  string traderID = 19;
+  // 安装编号
+  uint32 installID = 20;
+  // 本地报单编号
+  string orderLocalID = 21;
+  // 操作本地编号
+  string actionLocalID = 22;
+  // 会员代码
+  string participantID = 23;
+  // 客户代码
+  string clientID = 24;
+  // 业务单元
+  string businessUnit = 25;
+  // 报单操作状态
+  OrderActionStatus orderActionStatus = 26;
+  // 用户代码
+  string userID = 27;
+  // 状态信息
+  string statusMsg = 28;
+}

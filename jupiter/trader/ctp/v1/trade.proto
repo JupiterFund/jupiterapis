@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+import "jupiter/trader/ctp/v1/direction.proto";
+import "jupiter/trader/ctp/v1/offset_flag.proto";
+import "jupiter/trader/ctp/v1/hedge_flag.proto";
+
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 成交
+message Trade {
+  // 交易角色类型
+  enum TradingRole {
+    // (char)'1' 代理
+    BROKER = 0;
+    // (char)'2' 自营
+    HOST = 1;
+    // (char)'3' 做市商
+    Maker = 2;
+  };
+  // 成交类型类型
+  enum TradeType {
+    // (char)'0' 普通成交
+    COMMON = 0;
+    // (char)'1' 期权执行
+    OPTIONS_EXECUTION = 1;
+    // (char)'2' OTC成交
+    OTC = 2;
+    // (char)'3' 期转现衍生成交
+    EFP_DERIVED = 3;
+    // (char)'4' 组合衍生成交
+    COMBINATION_DERIVED = 4;
+  };
+  // 成交价来源类型
+  enum PriceSource {
+    // (char)'0' 前成交价
+    LAST_PRICE = 0;
+    // (char)'1' 买委托价
+    BUY = 1;
+    // (char)'2' 卖委托价
+    SELL = 2;
+  };
+  // 经纪公司代码
+  string brokerID = 1;
+  // 投资者代码
+  string investorID = 2;
+  // 合约代码
+  string instrumentID = 3;
+  // 报单引用
+  string orderRef = 4;
+  // 用户代码
+  string userID = 5;
+  // 交易所代码
+  string exchangeID = 6;
+  // 成交编号
+  string tradeID = 7;
+  // 买卖方向
+  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 8;
+  // 报单编号
+  string orderSysID = 9;
+  // 会员代码
+  string participantID = 10;
+  // 客户代码
+  string clientID = 11;
+  // 交易角色
+  TradingRole tradingRole = 12;
+  // 合约在交易所的代码
+  string exchangeInstID = 13;
+  // 开平标志
+  jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag offsetFlag = 14;
+  // 投机套保标志
+  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag hedgeFlag = 15;
+  // 价格
+  uint64 price = 16;
+  // 数量
+  uint32 volume = 17;
+  // 成交时期
+  string tradeDate = 18;
+  // 成交时间
+  string tradeTime = 19;
+  // 成交类型
+  TradeType tradeType = 20;
+  // 成交价来源
+  PriceSource priceSource = 21;
+  // 交易所交易员代码
+  string traderID = 22;
+  // 本地报单编号
+  string orderLocalID = 23;
+  // 结算会员编号
+  string clearingPartID = 24;
+  // 业务单元
+  string businessUnit = 25;
+  // 序号
+  uint32 sequenceNo = 26;
+  // 本地报单编号
+  string tradingDay = 27;
+  // 结算编号
+  uint32 settlementID = 28;
+}
