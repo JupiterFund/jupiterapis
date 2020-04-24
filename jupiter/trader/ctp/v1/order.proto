@@ -6,6 +6,7 @@ import "jupiter/trader/ctp/v1/direction.proto";
 import "jupiter/trader/ctp/v1/offset_flag.proto";
 import "jupiter/trader/ctp/v1/hedge_flag.proto";
 
+option java_multiple_files = true;
 option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
 
 // 报单
