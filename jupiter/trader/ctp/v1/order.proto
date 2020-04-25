@@ -201,7 +201,7 @@ message Order {
   // 组合投机套保标志
   jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag combHedgeFlag = 9;
   // 价格
-  uint64 limitPrice = 10;
+  double limitPrice = 10;
   // 数量
   uint32 volumeTotalOriginal = 11;
   // 有效期类型
@@ -215,7 +215,7 @@ message Order {
   // 触发条件
   ContingentCondition contingentCondition = 16;
   // 止损价
-  uint64 stopPrice = 17;
+  double stopPrice = 17;
   // 强平原因
   ForceCloseReason forceCloseReason = 18;
   // 自动挂起标志

@@ -73,7 +73,7 @@ message Trade {
   // 投机套保标志
   jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag hedgeFlag = 15;
   // 价格
-  uint64 price = 16;
+  double price = 16;
   // 数量
   uint32 volume = 17;
   // 成交时期

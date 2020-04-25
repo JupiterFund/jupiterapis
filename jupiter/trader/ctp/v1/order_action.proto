@@ -46,7 +46,7 @@ message OrderAction {
   // 操作标志
   ActionFlag actionFlag = 11;
   // 价格
-  uint64 limitPrice = 12;
+  double limitPrice = 12;
   // 数量变化
   uint32 volumeChange = 13;
   //

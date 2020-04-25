@@ -46,41 +46,41 @@ message InvestorPosition {
   // 空头冻结
   uint32 shortFrozen = 10;
   // 开仓冻结金额
-  uint64 longFrozenAmount = 11;
+  double longFrozenAmount = 11;
   // 开仓冻结金额
-  uint64 shortFrozenAmount = 12;
+  double shortFrozenAmount = 12;
   // 开仓量
   uint32 openVolume = 13;
   // 平仓量
   uint32 closeVolume = 14;
   // 开仓金额
-  uint64 openAmount = 15;
+  double openAmount = 15;
   // 平仓金额
-  uint64 closeAmount = 16;
+  double closeAmount = 16;
   // 持仓成本
-  uint64 positionCost = 17;
+  double positionCost = 17;
   // 上次占用的保证金
-  uint64 preMargin = 18;
+  double preMargin = 18;
   // 占用的保证金
-  uint64 useMargin = 19;
+  double useMargin = 19;
   // 冻结的保证金
-  uint64 frozenMargin = 20;
+  double frozenMargin = 20;
   // 冻结的资金
-  uint64 frozenCash = 21;
+  double frozenCash = 21;
   // 冻结的手续费
-  uint64 frozenCommission = 22;
+  double frozenCommission = 22;
   // 资金差额
-  uint64 cashIn = 23;
+  double cashIn = 23;
   // 手续费
-  uint64 commission = 24;
+  double commission = 24;
   // 平仓盈亏
-  uint64 closeProfit = 25;
+  double closeProfit = 25;
   // 持仓盈亏
-  uint64 positionProfit = 26;
+  double positionProfit = 26;
   // 上次结算价
-  uint64 preSettlementPrice = 27;
+  double preSettlementPrice = 27;
   // 本次结算价
-  uint64 settlementPrice = 28;
+  double settlementPrice = 28;
   // 交易日
   string tradingDay = 29;
   // 结算编号

@@ -72,7 +72,7 @@ message Instrument {
   // 合约数量乘数
   uint32 volumeMultiple = 13;
   // 最小变动价位
-  uint64 priceTick = 14;
+  double priceTick = 14;
   // 创建日
   string createDate = 15;
   // 上市日
@@ -92,7 +92,7 @@ message Instrument {
   // 持仓日期类型
   PositionDateType positionDateType = 23;
   // 多头保证金率
-  uint64 longMarginRatio = 24;
+  double longMarginRatio = 24;
   // 空头保证金率
-  uint64 shortMarginRatio = 25;
+  double shortMarginRatio = 25;
 }

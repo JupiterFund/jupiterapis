@@ -12,55 +12,55 @@ message TradingAccount {
   // 投资者帐号
   string accountID = 2;
   // 上次质押金额
-  uint64 preMortgage = 3;
+  double preMortgage = 3;
   // 上次信用额度
-  uint64 preCredit = 4;
+  double preCredit = 4;
   // 上次存款额
-  uint64 preDeposit = 5;
+  double preDeposit = 5;
   // 上次结算准备金
-  uint64 preBalance = 6;
+  double preBalance = 6;
   // 上次占用的保证金
-  uint64 preMargin = 7;
+  double preMargin = 7;
   // 利息基数
-  uint64 interestBase = 8;
+  double interestBase = 8;
   // 利息收入
-  uint64 interest = 9;
+  double interest = 9;
   // 入金金额
-  uint64 deposit = 10;
+  double deposit = 10;
   // 出金金额
-  uint64 withdraw = 11;
+  double withdraw = 11;
   // 冻结的保证金
-  uint64 frozenMargin = 12;
+  double frozenMargin = 12;
   // 冻结的资金
-  uint64 frozenCash = 13;
+  double frozenCash = 13;
   // 冻结的手续费
-  uint64 frozenCommission = 14;
+  double frozenCommission = 14;
   // 当前保证金总额
-  uint64 currMargin = 15;
+  double currMargin = 15;
   // 资金差额
-  uint64 cashIn = 16;
+  double cashIn = 16;
   // 手续费
-  uint64 commission = 17;
+  double commission = 17;
   // 平仓盈亏
-  uint64 closeProfit = 18;
+  double closeProfit = 18;
   // 持仓盈亏
-  uint64 positionProfit = 19;
+  double positionProfit = 19;
   // 期货结算准备金
-  uint64 balance = 20;
+  double balance = 20;
   // 可用资金
-  uint64 available = 21;
+  double available = 21;
   // 可取资金
-  uint64 withdrawQuota = 22;
+  double withdrawQuota = 22;
   // 基本准备金
-  uint64 reserve = 23;
+  double reserve = 23;
   // 交易日
   string tradingDay = 24;
   // 结算编号
   uint32 settlementID = 25;
   // 信用额度
-  uint64 credit = 26;
+  double credit = 26;
   // 质押金额
-  uint64 mortgage = 27;
+  double mortgage = 27;
   // 交易所保证金
-  uint64 exchangeMargin = 28;
+  double exchangeMargin = 28;
 }
