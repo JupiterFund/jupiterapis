@@ -219,7 +219,7 @@ message Order {
   // 强平原因
   ForceCloseReason forceCloseReason = 18;
   // 自动挂起标志
-  string isAutoSuspend = 19;
+  uint32 isAutoSuspend = 19;
   // 业务单元
   string businessUnit = 20;
   // 请求编号
