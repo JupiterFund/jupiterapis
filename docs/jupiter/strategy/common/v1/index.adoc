@@ -3,33 +3,6 @@
 
 
 
-== jupiter/strategy/common/v1/direction.proto
-
-
-
-=== DirectionEnum
-买卖方向
-
-
-
-
-
-
-[[DirectionEnum.Direction]]
-=== DirectionEnum.Direction
-
-
-|=====================================
-|*Name* |*Number* |*Description*
-
-|BUY |0 |多
-
-|SELL |1 |空
-
-|=====================================
-
-
-
 == jupiter/strategy/common/v1/factor.proto
 
 
@@ -61,74 +34,6 @@ code: 600400 name: 分位点上涨概率 value: [0.45, 0.36, 0.22, 0.24, 0.21]
 
 
 
-
-
-
-== jupiter/strategy/common/v1/offset.proto
-
-
-
-=== OffsetEnum
-开平标志
-
-
-
-
-
-
-[[OffsetEnum.Offset]]
-=== OffsetEnum.Offset
-
-
-|=====================================
-|*Name* |*Number* |*Description*
-
-|OPEN |0 |开
-
-|CLOSE |1 |平
-
-|CLOSETODAY |2 |平今
-
-|CLOSEYESTERDAY |3 |平昨???ForceClose = 4;
-
-|=====================================
-
-
-
-== jupiter/strategy/common/v1/order_type.proto
-
-
-
-=== OrderTypeEnum
-订单类型
-
-
-
-
-
-
-[[OrderTypeEnum.OrderType]]
-=== OrderTypeEnum.OrderType
-
-
-|=====================================
-|*Name* |*Number* |*Description*
-
-|MARKET |0 |市价
-
-|LIMIT |1 |限价
-
-|STOP |2 |止损单
-
-|FAK |3 |Fill and Kill
-
-|FOK |4 |Fill or Kill
-
-限价止损单
-???
-STOPLIMIT = 3;
-
-|=====================================
 
 
 
@@ -168,4 +73,3 @@ STOPLIMIT = 3;
 |[[bytes]] (((bytes))) bytes |May contain any arbitrary sequence of bytes. |string |ByteString |str
 
 |==============================================================
-

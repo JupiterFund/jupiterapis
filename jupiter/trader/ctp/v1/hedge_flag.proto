@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 投机套保标志类型
+message HedgeFlagEnum {
+  enum HedgeFlag {
+    // (char)'1' 投机
+    SPECULATION = 0;
+    // (char)'2' 套利
+    ARBITRAGE = 1;
+    // (char)'3' 套保
+    HEDGE = 2;
+  };
+}

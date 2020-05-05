@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 资金账户
+message TradingAccount {
+  // 消息uuid
+  string UUID = 1;
+  // 经纪公司代码
+  string brokerID = 2;
+  // 投资者帐号
+  string accountID = 3;
+  // 上次质押金额
+  double preMortgage = 4;
+  // 上次信用额度
+  double preCredit = 5;
+  // 上次存款额
+  double preDeposit = 6;
+  // 上次结算准备金
+  double preBalance = 7;
+  // 上次占用的保证金
+  double preMargin = 8;
+  // 利息基数
+  double interestBase = 9;
+  // 利息收入
+  double interest = 10;
+  // 入金金额
+  double deposit = 11;
+  // 出金金额
+  double withdraw = 12;
+  // 冻结的保证金
+  double frozenMargin = 13;
+  // 冻结的资金
+  double frozenCash = 14;
+  // 冻结的手续费
+  double frozenCommission = 15;
+  // 当前保证金总额
+  double currMargin = 16;
+  // 资金差额
+  double cashIn = 17;
+  // 手续费
+  double commission = 18;
+  // 平仓盈亏
+  double closeProfit = 19;
+  // 持仓盈亏
+  double positionProfit = 20;
+  // 期货结算准备金
+  double balance = 21;
+  // 可用资金
+  double available = 22;
+  // 可取资金
+  double withdrawQuota = 23;
+  // 基本准备金
+  double reserve = 24;
+  // 交易日
+  string tradingDay = 25;
+  // 结算编号
+  uint32 settlementID = 26;
+  // 信用额度
+  double credit = 27;
+  // 质押金额
+  double mortgage = 28;
+  // 交易所保证金
+  double exchangeMargin = 29;
+}

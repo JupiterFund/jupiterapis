@@ -1,0 +1,289 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+import "jupiter/trader/ctp/v1/direction.proto";
+import "jupiter/trader/ctp/v1/offset_flag.proto";
+import "jupiter/trader/ctp/v1/hedge_flag.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 报单
+message Order {
+  // 报单价格条件类型
+  enum OrderPriceType {
+    // (char)'1' 任意价
+    ANY_PRICE = 0;
+    // (char)'2' 限价
+    LIMIT_PRICE = 1;
+    // (char)'3' 最优价
+    BEST_PRICE = 2;
+    // (char)'4' 最新价
+    LAST_PRICE = 3;
+    // (char)'5' 最新价浮动上浮1个ticks
+    LAST_PRICE_PLUS_ONE_TICKS = 4;
+    // (char)'6' 最新价浮动上浮2个ticks
+    LAST_PRICE_PLUS_TWO_TICKS = 5;
+    // (char)'7' 最新价浮动上浮3个ticks
+    LAST_PRICE_PLUS_THREE_TICKS = 6;
+    // (char)'8' 卖一价
+    ASK_PRICE_1 = 7;
+    // (char)'9' 卖一价浮动上浮1个ticks
+    ASK_PRICE_1_PLUS_ONE_TICKS = 8;
+    // (char)'A' 卖一价浮动上浮2个ticks
+    ASK_PRICE_1_PLUS_TWO_TICKS = 9;
+    // (char)'B' 卖一价浮动上浮3个ticks
+    ASK_PRICE_1_PLUS_THREE_TICKS = 10;
+    // (char)'C' 买一价
+    BID_PRICE_1 = 11;
+    // (char)'D' 买一价浮动上浮1个ticks
+    BID_PRICE_1_PLUS_ONE_TICKS = 12;
+    // (char)'E' 买一价浮动上浮2个ticks
+    BID_PRICE_1_PLUS_TWO_TICKS = 13;
+    // (char)'F' 买一价浮动上浮3个ticks
+    BID_PRICE_1_PLUS_THREE_TICKS = 14;
+  };
+  // 有效期类型类型
+  enum TimeCondition {
+    // (char)'1' 立即完成，否则撤销
+    IOC = 0;
+    // (char)'2' 本节有效
+    GFS = 1;
+    // (char)'3' 当日有效
+    GFD = 2;
+    // (char)'4' 指定日期前有效
+    GTD = 3;
+    // (char)'5' 撤销前有效
+    GTC = 4;
+    // (char)'6' 集合竞价有效
+    GFA = 5;
+  };
+  // 成交量类型类型
+  enum VolumeCondition {
+    // (char)'1' 任何数量
+    AV = 0;
+    // (char)'2' 最小数量
+    MV = 1;
+    // (char)'3' 全部数量
+    CV = 2;
+  };
+  // 触发条件类型
+  enum ContingentCondition {
+    // (char)'1' 立即
+    IMMEDIATELY = 0;
+    // (char)'2' 止损
+    TOUCH = 1;
+    // (char)'3' 止赢
+    TOUCH_PROFIT = 2;
+    // (char)'4' 预埋单
+    PARKED_ORDER = 3;
+    // (char)'5' 最新价大于条件价
+    LAST_PRICE_GREATER_THAN_STOP_PRICE = 4;
+    // (char)'6' 最新价大于等于条件价
+    LAST_PRICE_GREATER_EQUAL_STOP_PRICE = 5;
+    // (char)'7' 最新价小于条件价
+    LAST_PRICE_LESSER_THAN_STOP_PRICE = 6;
+    // (char)'8' 最新价小于等于条件价
+    LAST_PRICE_LESSER_EQUAL_STOP_PRICE = 7;
+    // (char)'9' 卖一价大于条件价
+    ASK_PRICE_GREATER_THAN_STOP_PRICE = 8;
+    // (char)'A' 卖一价大于等于条件价
+    ASK_PRICE_GREATER_EQUAL_STOP_PRICE = 9;
+    // (char)'B' 卖一价小于条件价
+    ASK_PRICE_LESSER_THAN_STOP_PRICE = 10;
+    // (char)'C' 卖一价小于等于条件价
+    ASK_PRICE_LESSER_EQUAL_STOP_PRICE = 11;
+    // (char)'D' 买一价大于条件价
+    BID_PRICE_GREATER_THAN_STOP_PRICE = 12;
+    // (char)'E' 买一价大于等于条件价
+    BID_PRICE_GREATER_EQUAL_STOP_PRICE = 13;
+    // (char)'F' 买一价小于条件价
+    BID_PRICE_LESSER_THAN_STOP_PRICE = 14;
+    // (char)'H' 买一价小于等于条件价
+    BID_PRICE_LESSER_EQUAL_STOP_PRICE = 15;
+  }
+  // 强平原因类型
+  enum ForceCloseReason {
+    // (char)'0' 非强平
+    NOT_FORCE_CLOSE = 0;
+    // (char)'1' 资金不足
+    LACK_DEPOSIT = 1;
+    // (char)'2' 客户超仓
+    CLIENT_OVER_POSITION_LIMIT = 2;
+    // (char)'3' 会员超仓
+    MEMBER_OVER_POSITION_LIMIT = 3;
+    // (char)'4' 持仓非整数倍
+    NOT_MULTIPLE = 4;
+    // (char)'5' 违规
+    VIOLATION = 5;
+    // (char)'6' 其它
+    OTHER = 6;
+    // (char)'7' 自然人临近交割
+    PERSON_DELIV = 7;
+  };
+  // 报单提交状态类型
+  enum OrderSubmitStatus {
+    // (char)'0' 已经提交
+    INSERT_SUBMITTED = 0;
+    // (char)'1' 撤单已经提交
+    CANCEL_SUBMITTED = 1;
+    // (char)'2' 修改已经提交
+    MODIFY_SUBMITTED = 2;
+    // (char)'3' 已经接受
+    ACCEPTED = 3;
+    // (char)'4' 报单已经被拒绝
+    INSERT_REJECTED = 4;
+    // (char)'5' 撤单已经被拒绝
+    CANCEL_REJECTED = 5;
+    // (char)'6' 改单已经被拒绝
+    MODIFY_REJECTED = 6;
+  }
+  // 报单来源类型
+  enum OrderSource {
+    // (char)'0' 来自参与者
+    PARTICIPANT = 0;
+    // (char)'1' 来自管理员
+    ADMINISTRATOR = 1;
+  }
+  // 报单状态类型
+  enum OrderStatus {
+    // (char)'0' 全部成交
+    ALL_TRADED = 0;
+    // (char)'1' 部分成交还在队列中
+    PART_TRADED_QUEUEING = 1;
+    // (char)'2' 部分成交不在队列中
+    PART_TRADED_NOT_QUEUEING = 2;
+    // (char)'3' 未成交还在队列中
+    NO_TRADE_QUEUEING = 3;
+    // (char)'4' 未成交不在队列中
+    NO_TRADE_NOT_QUEUEING = 4;
+    // (char)'5' 撤单
+    CANCELED = 5;
+    // (char)'a' 未知-订单已提交交易所，未从交易所收到确认信息
+    UNKNOWN = 6;
+    // (char)'b' 尚未触发
+    NOT_TOUCHED = 7;
+    // (char)'c' 已触发
+    TOUCHED = 8;
+  }
+  // 报单类型类型
+  enum OrderType {
+    // (char)'0' 正常
+    NORMAL = 0;
+    // (char)'1' 报价衍生
+    DERIVE_FROM_QUOTE = 1;
+    // (char)'2' 组合衍生
+    DERIVE_FROM_COMBINATION = 2;
+    // (char)'3' 组合报单
+    COMBINATION = 3;
+    // (char)'4' 条件单
+    CONDITIONAL_ORDER = 4;
+    // (char)'5' 互换单
+    SWAP = 5;
+  }
+  // 消息uuid
+  string UUID = 1;
+  // 经纪公司代码
+  string brokerID = 2;
+  // 投资者代码
+  string investorID = 3;
+  // 合约代码
+  string instrumentID = 4;
+  // 报单引用
+  string orderRef = 5;
+  // 用户代码
+  string userID = 6;
+  // 报单价格条件
+  OrderPriceType orderPriceType = 7;
+  // 买卖方向
+  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 8;
+  // 组合开平标志
+  jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag combOffsetFlag = 9;
+  // 组合投机套保标志
+  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag combHedgeFlag = 10;
+  // 价格
+  double limitPrice = 11;
+  // 数量
+  uint32 volumeTotalOriginal = 12;
+  // 有效期类型
+  TimeCondition timeCondition = 13;
+  // GTD 日期
+  string GTDDate = 14;
+  // 成交量类型
+  VolumeCondition volumeCondition = 15;
+  // 最小成交量
+  uint32 minVolume = 16;
+  // 触发条件
+  ContingentCondition contingentCondition = 17;
+  // 止损价
+  double stopPrice = 18;
+  // 强平原因
+  ForceCloseReason forceCloseReason = 19;
+  // 自动挂起标志
+  uint32 isAutoSuspend = 20;
+  // 业务单元
+  string businessUnit = 21;
+  // 请求编号
+  uint32 requestID = 22;
+  // 本地报单编号
+  string orderLocalID = 23;
+  // 交易所代码
+  string exchangeID = 24;
+  // 会员代码
+  string participantID = 25;
+  // 客户代码
+  string clientID = 26;
+  // 合约在交易所的代码
+  string exchangeInstID = 27;
+  // 交易所交易员代码
+  string traderID = 28;
+  // 安装编号
+  uint32 installID = 29;
+  // 报单提交状态
+  OrderSubmitStatus orderSubmitStatus = 30;
+  // 报单提示序号
+  uint32 notifySequence = 31;
+  // 交易日
+  string tradingDay = 32;
+  // 结算编号
+  string settlementID = 33;
+  // 报单编号
+  string orderSysID = 34;
+  // 报单来源
+  OrderSource orderSource = 35;
+  // 报单状态
+  OrderStatus orderStatus = 36;
+  // 报单类型
+  OrderType orderType = 37;
+  // 今成交数量
+  uint32 volumeTraded = 38;
+  // 剩余数量
+  uint32 volumeTotal = 39;
+  // 报单日期
+  string insertDate = 40;
+  // 插入时间
+  string insertTime = 41;
+  // 激活时间
+  string activeTime = 42;
+  // 挂起时间
+  string suspendTime = 43;
+  // 最后修改时间
+  string updateTime = 44;
+  // 撤销时间
+  string cancelTime = 45;
+  // 最后修改交易所交易员代码
+  string activeTraderID = 46;
+  // 结算会员编号
+  string clearingPartID = 47;
+  // 序号
+  uint32 sequenceNo = 48;
+  // 前置编号
+  uint32 frontID = 49;
+  // 会话编号
+  uint32 sessionID = 50;
+  // 用户端产品信息
+  string userProductInfo = 51;
+  // 状态信息
+  string statusMsg = 52;
+}

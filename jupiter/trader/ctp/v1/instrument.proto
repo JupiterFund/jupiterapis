@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 合约
+message Instrument {
+  // 产品类型类型
+  enum ProductClass {
+    // (char)'1' 期货
+    FUTURE = 0;
+    // (char)'2' 期权
+    OPTIONS = 1;
+    // (char)'3' 组合
+    COMBINATION = 2;
+    // (char)'4' 即期
+    SPOT = 3;
+    // (char)'5' 期转现
+    EFP = 4;
+  };
+  // 合约生命周期状态类型
+  enum InstLifePhase {
+    // (char)'0' 未上市
+    NOT_START = 0;
+    // (char)'1' 上市
+    STARTED = 1;
+    // (char)'2' 停牌
+    PAUSE = 2;
+    // (char)'3' 到期
+    EXPIRED = 3;
+  };
+  // 持仓类型类型
+  enum PositionType {
+    // (char)'1' 净持仓
+    NET = 0;
+    // (char)'2' 综合持仓
+    GROSS = 1;
+  };
+  // 持仓日期类型类型
+  enum PositionDateType {
+    // (char)'1' 使用历史持仓
+    USE_HISTORY = 0;
+    // (char)'2' 不使用历史持仓
+    NO_USE_HISTORY = 1;
+  };
+  // 消息uuid
+  string UUID = 1;
+  // 合约代码
+  string instrumentID = 2;
+  // 交易所代码
+  string exchangeID = 3;
+  // 合约名称
+  string instrumentName = 4;
+  // 合约在交易所的代码
+  string exchangeInstID = 5;
+  // 产品代码
+  string productID = 6;
+  // 产品类型
+  ProductClass productClass = 7;
+  // 交割年份
+  uint32 deliveryYear = 8;
+  // 交割月
+  uint32 deliveryMonth = 9;
+  // 市价单最大下单量
+  uint32 maxMarketOrderVolume = 10;
+  // 市价单最大下单量
+  uint32 minMarketOrderVolume = 11;
+  // 市价单最大下单量
+  uint32 maxLimitOrderVolume = 12;
+  // 市价单最大下单量
+  uint32 minLimitOrderVolume = 13;
+  // 合约数量乘数
+  uint32 volumeMultiple = 14;
+  // 最小变动价位
+  double priceTick = 15;
+  // 创建日
+  string createDate = 16;
+  // 上市日
+  string openDate = 17;
+  // 到期日
+  string expireDate = 18;
+  // 开始交割日
+  string startDelivDate = 19;
+  // 结束交割日
+  string endDelivDate = 20;
+  // 合约生命周期状态
+  InstLifePhase instLifePhase = 21;
+  // 当前是否交易
+  uint32 isTrading = 22;
+  // 持仓类型
+  PositionType positionType = 23;
+  // 持仓日期类型
+  PositionDateType positionDateType = 24;
+  // 多头保证金率
+  double longMarginRatio = 25;
+  // 空头保证金率
+  double shortMarginRatio = 26;
+}

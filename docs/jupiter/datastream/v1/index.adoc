@@ -99,6 +99,9 @@ Container for enum describing possible markets.
 
 |auctionQty | <<uint64,uint64>> | |波动性中断集合竞价虚拟匹配量
 
+*
+部分特殊字段
+
 |avgPrice | <<uint32,uint32>> | |郑商所期货均价
 
 |===========================================
@@ -130,6 +133,9 @@ Container for enum describing possible markets.
 |timestamp | <<google.protobuf.Timestamp,google.protobuf.Timestamp>> | |由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息
 
 |tradeDate | <<uint32,uint32>> | |交易日期 yyyyMMdd
+
+*
+上交所数据规范
 
 |preClosePx | <<uint64,uint64>> | |昨收盘价 N(9,3)
 
@@ -174,6 +180,9 @@ Container for enum describing possible markets.
 |warLowerPx | <<uint64,uint64>> | |权证跌停价格 N(9,3)
 
 |warUpperPx | <<uint64,uint64>> | |权证涨停价格 N(9,3)
+
+*
+QTS独有数据
 
 |etfBuyNumber | <<uint32,uint32>> | |ETF申购笔数
 
@@ -222,6 +231,9 @@ Container for enum describing possible markets.
 |offerQty | <<uint64,uint64>> |repeated |申卖量 N(9,0)
 
 |offerNumOrders | <<uint32,uint32>> |repeated |卖出总委托笔数
+
+*
+部分特殊字段
 
 |priceUpLimit | <<uint64,uint64>> | |涨停价 N(9,3)
 
@@ -516,4 +528,3 @@ Container for enum describing possible markets.
 |[[bytes]] (((bytes))) bytes |May contain any arbitrary sequence of bytes. |string |ByteString |str
 
 |==============================================================
-

@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+import "jupiter/trader/ctp/v1/hedge_flag.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 投资者持仓
+message InvestorPosition {
+  // 持仓多空方向类型
+  enum PosiDirection {
+    // (char)'1' 净
+    NET = 0;
+    // (char)'2' 多头
+    LONG = 1;
+    // (char)'3' 空头
+    SHORT = 2;
+  };
+  // 持仓日期类型
+  enum PositionDate {
+    // (char)'1' 今日持仓
+    TODAY = 0;
+    // (char)'2' 历史持仓
+    HISTORY = 1;
+  };
+  // 消息uuid
+  string UUID = 1;
+  // 经纪公司代码
+  string brokerID = 2;
+  // 投资者代码
+  string investorID = 3;
+  // 合约代码
+  string instrumentID = 4;
+  // 持仓多空方向
+  PosiDirection posiDirection = 5;
+  // 投机套保标志
+  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag hedgeFlag = 6;
+  // 持仓日期
+  PositionDate positionDate = 7;
+  // 上日持仓
+  uint32 ydPosition = 8;
+  // 今日持仓
+  uint32 position = 9;
+  // 多头冻结
+  uint32 longFrozen = 10;
+  // 空头冻结
+  uint32 shortFrozen = 11;
+  // 开仓冻结金额
+  double longFrozenAmount = 12;
+  // 开仓冻结金额
+  double shortFrozenAmount = 13;
+  // 开仓量
+  uint32 openVolume = 14;
+  // 平仓量
+  uint32 closeVolume = 15;
+  // 开仓金额
+  double openAmount = 16;
+  // 平仓金额
+  double closeAmount = 17;
+  // 持仓成本
+  double positionCost = 18;
+  // 上次占用的保证金
+  double preMargin = 19;
+  // 占用的保证金
+  double useMargin = 20;
+  // 冻结的保证金
+  double frozenMargin = 21;
+  // 冻结的资金
+  double frozenCash = 22;
+  // 冻结的手续费
+  double frozenCommission = 23;
+  // 资金差额
+  double cashIn = 24;
+  // 手续费
+  double commission = 25;
+  // 平仓盈亏
+  double closeProfit = 26;
+  // 持仓盈亏
+  double positionProfit = 27;
+  // 上次结算价
+  double preSettlementPrice = 28;
+  // 本次结算价
+  double settlementPrice = 29;
+  // 交易日
+  string tradingDay = 30;
+  // 结算编号
+  uint32 settlementID = 31;
+}

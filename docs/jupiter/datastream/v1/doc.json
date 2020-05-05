@@ -340,7 +340,7 @@
             },
             {
               "name": "auctionQty",
-              "description": "波动性中断集合竞价虚拟匹配量",
+              "description": "波动性中断集合竞价虚拟匹配量\n\n*\n部分特殊字段",
               "label": "",
               "type": "uint64",
               "longType": "uint64",
@@ -435,7 +435,7 @@
             },
             {
               "name": "tradeDate",
-              "description": "交易日期 yyyyMMdd",
+              "description": "交易日期 yyyyMMdd\n\n*\n上交所数据规范",
               "label": "",
               "type": "uint32",
               "longType": "uint32",
@@ -655,7 +655,7 @@
             },
             {
               "name": "warUpperPx",
-              "description": "权证涨停价格 N(9,3)",
+              "description": "权证涨停价格 N(9,3)\n\n*\nQTS独有数据",
               "label": "",
               "type": "uint64",
               "longType": "uint64",
@@ -895,7 +895,7 @@
             },
             {
               "name": "offerNumOrders",
-              "description": "卖出总委托笔数",
+              "description": "卖出总委托笔数\n\n*\n部分特殊字段",
               "label": "repeated",
               "type": "uint32",
               "longType": "uint32",

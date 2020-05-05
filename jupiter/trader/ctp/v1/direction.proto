@@ -1,16 +1,16 @@
 syntax = "proto3";
 
-package jupiter.strategy.common.v1;
+package jupiter.trader.ctp.v1;
 
 option java_multiple_files = true;
-option java_package = "com.nodeunify.jupiter.strategy.common.v1";
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
 
 // 买卖方向
 message DirectionEnum {
   enum Direction {
-    // 多
+    // (char)'0' 多
     BUY = 0;
-    // 空
+    // (char)'1' 空
     SELL = 1;
   };
 }

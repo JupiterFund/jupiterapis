@@ -143,7 +143,7 @@ Container for enum describing possible markets.
 | offerPrice | [uint64](#uint64) | repeated | 申卖价 N(9,3) |
 | offerQty | [uint64](#uint64) | repeated | 申卖量 N(9,0) |
 | auctionPrice | [uint64](#uint64) |  | 波动性中断参考价 |
-| auctionQty | [uint64](#uint64) |  | 波动性中断集合竞价虚拟匹配量 |
+| auctionQty | [uint64](#uint64) |  | 波动性中断集合竞价虚拟匹配量 部分特殊字段 |
 | avgPrice | [uint32](#uint32) |  | 郑商所期货均价 |
 
 
@@ -180,7 +180,7 @@ Container for enum describing possible markets.
 | date | [uint32](#uint32) |  | 自然日 yyyyMMdd |
 | time | [uint32](#uint32) |  | HHmmssSSS |
 | timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息 |
-| tradeDate | [uint32](#uint32) |  | 交易日期 yyyyMMdd |
+| tradeDate | [uint32](#uint32) |  | 交易日期 yyyyMMdd 上交所数据规范 |
 | preClosePx | [uint64](#uint64) |  | 昨收盘价 N(9,3) |
 | openPx | [uint64](#uint64) |  | 开盘价 N(9,3) |
 | highPx | [uint64](#uint64) |  | 最高价 N(9,3) |
@@ -202,7 +202,7 @@ Container for enum describing possible markets.
 | yieldToMaturity | [uint64](#uint64) |  | 到期收益率 N(6,4) |
 | totalWarrantExecQty | [uint64](#uint64) |  | 权证执行的总数量 N(9,0) 深市数据不清楚 |
 | warLowerPx | [uint64](#uint64) |  | 权证跌停价格 N(9,3) |
-| warUpperPx | [uint64](#uint64) |  | 权证涨停价格 N(9,3) |
+| warUpperPx | [uint64](#uint64) |  | 权证涨停价格 N(9,3) QTS独有数据 |
 | etfBuyNumber | [uint32](#uint32) |  | ETF申购笔数 |
 | etfBuyAmount | [uint64](#uint64) |  | ETF申购量 |
 | etfBuyMoney | [uint64](#uint64) |  | ETF申购额 |
@@ -226,7 +226,7 @@ Container for enum describing possible markets.
 | bidNumOrders | [uint32](#uint32) | repeated | 买入总委托笔数 |
 | offerPrice | [uint64](#uint64) | repeated | 申卖价 N(9,3) |
 | offerQty | [uint64](#uint64) | repeated | 申卖量 N(9,0) |
-| offerNumOrders | [uint32](#uint32) | repeated | 卖出总委托笔数 |
+| offerNumOrders | [uint32](#uint32) | repeated | 卖出总委托笔数 部分特殊字段 |
 | priceUpLimit | [uint64](#uint64) |  | 涨停价 N(9,3) |
 | priceDownLimit | [uint64](#uint64) |  | 跌停价 N(9,3) |
 | priceUpDown1 | [uint64](#uint64) |  | 升跌1 N(9,3) |
@@ -478,21 +478,21 @@ Container for enum describing possible markets.
 
 ## Scalar Value Types
 
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| <a name="double" /> double |  | double | double | float |
-| <a name="float" /> float |  | float | float | float |
-| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
-| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
-| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
-| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
-| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
-| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
-| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
-| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
-| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
-| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
-| <a name="bool" /> bool |  | bool | boolean | boolean |
-| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
-| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
+| .proto Type | Notes | C++ | Java | Python | Go | C# | PHP | Ruby |
+| ----------- | ----- | --- | ---- | ------ | -- | -- | --- | ---- |
+| <a name="double" /> double |  | double | double | float | float64 | double | float | Float |
+| <a name="float" /> float |  | float | float | float | float32 | float | float | Float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long | uint32 | uint | integer | Bignum or Fixnum (as required) |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long | uint64 | ulong | integer/string | Bignum or Fixnum (as required) |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int | uint32 | uint | integer | Bignum or Fixnum (as required) |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long | uint64 | ulong | integer/string | Bignum |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="bool" /> bool |  | bool | boolean | boolean | bool | bool | boolean | TrueClass/FalseClass |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode | string | string | string | String (UTF-8) |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str | []byte | ByteString | string | String (ASCII-8BIT) |
 

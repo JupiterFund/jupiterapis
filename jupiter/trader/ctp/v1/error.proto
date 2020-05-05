@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+import "jupiter/trader/ctp/v1/order.proto";
+import "jupiter/trader/ctp/v1/order_action.proto";
+import "jupiter/trader/ctp/v1/trade.proto";
+import "jupiter/trader/ctp/v1/instrument.proto";
+import "jupiter/trader/ctp/v1/investor_position.proto";
+import "jupiter/trader/ctp/v1/trading_account.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 错误来源类型
+enum Source {
+  // 来自CTP前置
+  FRONT = 0;
+  // 来自交易所
+  EXCHANGE = 1;
+}
+
+// 响应信息类型
+message ResponseInfo {
+  // 错误代码
+  uint32 errorID = 1;
+  // 错误消息
+  string errorMsg = 2;
+}
+
+// 请求错误
+message Error {
+  // 消息uuid
+  string UUID = 1;
+  // 错误来源
+  Source source = 2;
+  // 响应信息
+  ResponseInfo rspInfo = 3;
+  // 返回数据
+  oneof field {
+    jupiter.trader.ctp.v1.Order order = 4;
+    jupiter.trader.ctp.v1.OrderAction orderAction = 5;
+    jupiter.trader.ctp.v1.Trade trade = 6;
+    jupiter.trader.ctp.v1.Instrument instrument = 7;
+    jupiter.trader.ctp.v1.InvestorPosition investorPosition = 8;
+    jupiter.trader.ctp.v1.TradingAccount tradingAccount = 9;
+  }
+}
