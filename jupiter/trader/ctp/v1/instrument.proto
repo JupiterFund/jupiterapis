@@ -45,54 +45,56 @@ message Instrument {
     // (char)'2' 不使用历史持仓
     NO_USE_HISTORY = 1;
   };
+  // 消息uuid
+  string UUID = 1;
   // 合约代码
-  string instrumentID = 1;
+  string instrumentID = 2;
   // 交易所代码
-  string exchangeID = 2;
+  string exchangeID = 3;
   // 合约名称
-  string instrumentName = 3;
+  string instrumentName = 4;
   // 合约在交易所的代码
-  string exchangeInstID = 4;
+  string exchangeInstID = 5;
   // 产品代码
-  string productID = 5;
+  string productID = 6;
   // 产品类型
-  ProductClass productClass = 6;
+  ProductClass productClass = 7;
   // 交割年份
-  uint32 deliveryYear = 7;
+  uint32 deliveryYear = 8;
   // 交割月
-  uint32 deliveryMonth = 8;
+  uint32 deliveryMonth = 9;
   // 市价单最大下单量
-  uint32 maxMarketOrderVolume = 9;
+  uint32 maxMarketOrderVolume = 10;
   // 市价单最大下单量
-  uint32 minMarketOrderVolume = 10;
+  uint32 minMarketOrderVolume = 11;
   // 市价单最大下单量
-  uint32 maxLimitOrderVolume = 11;
+  uint32 maxLimitOrderVolume = 12;
   // 市价单最大下单量
-  uint32 minLimitOrderVolume = 12;
+  uint32 minLimitOrderVolume = 13;
   // 合约数量乘数
-  uint32 volumeMultiple = 13;
+  uint32 volumeMultiple = 14;
   // 最小变动价位
-  double priceTick = 14;
+  double priceTick = 15;
   // 创建日
-  string createDate = 15;
+  string createDate = 16;
   // 上市日
-  string openDate = 16;
+  string openDate = 17;
   // 到期日
-  string expireDate = 17;
+  string expireDate = 18;
   // 开始交割日
-  string startDelivDate = 18;
+  string startDelivDate = 19;
   // 结束交割日
-  string endDelivDate = 19;
+  string endDelivDate = 20;
   // 合约生命周期状态
-  InstLifePhase instLifePhase = 20;
+  InstLifePhase instLifePhase = 21;
   // 当前是否交易
-  uint32 isTrading = 21;
+  uint32 isTrading = 22;
   // 持仓类型
-  PositionType positionType = 22;
+  PositionType positionType = 23;
   // 持仓日期类型
-  PositionDateType positionDateType = 23;
+  PositionDateType positionDateType = 24;
   // 多头保证金率
-  double longMarginRatio = 24;
+  double longMarginRatio = 25;
   // 空头保证金率
-  double shortMarginRatio = 25;
+  double shortMarginRatio = 26;
 }

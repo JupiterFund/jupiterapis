@@ -23,60 +23,62 @@ message OrderAction {
     // (char)'c' 已经被拒绝
     REJECTED = 2;
   };
+  // 消息uuid
+  string UUID = 1;
   // 经纪公司代码
-  string brokerID = 1;
+  string brokerID = 2;
   // 投资者代码
-  string investorID = 2;
+  string investorID = 3;
   // 合约代码
-  string instrumentID = 3;
+  string instrumentID = 4;
   // 报单操作引用
-  uint32 orderActionRef = 4;
+  uint32 orderActionRef = 5;
   // 报单引用
-  string orderRef = 5;
+  string orderRef = 6;
   // 请求编号
-  uint32 requestID = 6;
+  uint32 requestID = 7;
   // 前置编号
-  uint32 frontID = 7;
+  uint32 frontID = 8;
   // 会话编号
-  uint32 sessionID = 8;
+  uint32 sessionID = 9;
   // 交易所代码
-  string exchangeID = 9;
+  string exchangeID = 10;
   // 报单编号
-  string orderSysID = 10;
+  string orderSysID = 11;
   // 操作标志
-  ActionFlag actionFlag = 11;
+  ActionFlag actionFlag = 12;
   // 价格
-  double limitPrice = 12;
+  double limitPrice = 13;
   // 数量变化
-  uint32 volumeChange = 13;
+  uint32 volumeChange = 14;
   //
-  string investUnitID = 14;
+  string investUnitID = 15;
   // ip地址
-  string ipAddress = 15;
+  string ipAddress = 16;
   // mac地址
-  string macAddress = 16;
+  string macAddress = 17;
   // 操作日期
-  string actionDate = 17;
+  string actionDate = 18;
   // 操作时间
-  string actionTime = 18;
+  string actionTime = 19;
   // 交易所交易员代码
-  string traderID = 19;
+  string traderID = 20;
   // 安装编号
-  uint32 installID = 20;
+  uint32 installID = 21;
   // 本地报单编号
-  string orderLocalID = 21;
+  string orderLocalID = 22;
   // 操作本地编号
-  string actionLocalID = 22;
+  string actionLocalID = 23;
   // 会员代码
-  string participantID = 23;
+  string participantID = 24;
   // 客户代码
-  string clientID = 24;
+  string clientID = 25;
   // 业务单元
-  string businessUnit = 25;
+  string businessUnit = 26;
   // 报单操作状态
-  OrderActionStatus orderActionStatus = 26;
+  OrderActionStatus orderActionStatus = 27;
   // 用户代码
-  string userID = 27;
+  string userID = 28;
   // 状态信息
-  string statusMsg = 28;
+  string statusMsg = 29;
 }

@@ -42,60 +42,62 @@ message Trade {
     // (char)'2' 卖委托价
     SELL = 2;
   };
+  // 消息uuid
+  string UUID = 1;
   // 经纪公司代码
-  string brokerID = 1;
+  string brokerID = 2;
   // 投资者代码
-  string investorID = 2;
+  string investorID = 3;
   // 合约代码
-  string instrumentID = 3;
+  string instrumentID = 4;
   // 报单引用
-  string orderRef = 4;
+  string orderRef = 5;
   // 用户代码
-  string userID = 5;
+  string userID = 6;
   // 交易所代码
-  string exchangeID = 6;
+  string exchangeID = 7;
   // 成交编号
-  string tradeID = 7;
+  string tradeID = 8;
   // 买卖方向
-  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 8;
+  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 9;
   // 报单编号
-  string orderSysID = 9;
+  string orderSysID = 10;
   // 会员代码
-  string participantID = 10;
+  string participantID = 11;
   // 客户代码
-  string clientID = 11;
+  string clientID = 12;
   // 交易角色
-  TradingRole tradingRole = 12;
+  TradingRole tradingRole = 13;
   // 合约在交易所的代码
-  string exchangeInstID = 13;
+  string exchangeInstID = 14;
   // 开平标志
-  jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag offsetFlag = 14;
+  jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag offsetFlag = 15;
   // 投机套保标志
-  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag hedgeFlag = 15;
+  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag hedgeFlag = 16;
   // 价格
-  double price = 16;
+  double price = 17;
   // 数量
-  uint32 volume = 17;
+  uint32 volume = 18;
   // 成交时期
-  string tradeDate = 18;
+  string tradeDate = 19;
   // 成交时间
-  string tradeTime = 19;
+  string tradeTime = 20;
   // 成交类型
-  TradeType tradeType = 20;
+  TradeType tradeType = 21;
   // 成交价来源
-  PriceSource priceSource = 21;
+  PriceSource priceSource = 22;
   // 交易所交易员代码
-  string traderID = 22;
+  string traderID = 23;
   // 本地报单编号
-  string orderLocalID = 23;
+  string orderLocalID = 24;
   // 结算会员编号
-  string clearingPartID = 24;
+  string clearingPartID = 25;
   // 业务单元
-  string businessUnit = 25;
+  string businessUnit = 26;
   // 序号
-  uint32 sequenceNo = 26;
+  uint32 sequenceNo = 27;
   // 本地报单编号
-  string tradingDay = 27;
+  string tradingDay = 28;
   // 结算编号
-  uint32 settlementID = 28;
+  uint32 settlementID = 29;
 }

@@ -1,0 +1,3354 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 100%;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0; /* No indent on first p in td */
+      }
+
+      /* Table of fields */
+      .field-table td:nth-child(1) { /* Field */
+        width: 10em;
+      }
+      .field-table td:nth-child(2) { /* Type */
+        width: 10em;
+      }
+      .field-table td:nth-child(3) { /* Label */
+        width: 6em;
+      }
+      .field-table td:nth-child(4) { /* Description */
+        width: auto;
+      }
+
+      /* Table of extensions */
+      .extension-table td:nth-child(1) { /* Extension */
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) { /* Type */
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) { /* Base */
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) { /* Number */
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) { /* Description */
+        width: auto;
+      }
+
+      /* Table of enum values. */
+      .enum-table td:nth-child(1) { /* Name */
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) { /* Number */
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) { /* Description */
+        width: auto;
+      }
+
+      /* Table of scalar value types. */
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+      /* Table of contents. */
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+      /* File heading div */
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+      /* The 'M', 'E' and 'X' badges in the ToC */
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    <!-- User custom CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.2.10/iframeResizer.contentWindow.min.js"></script>
+  </head>
+
+  <body>
+
+    <h1 id="title">Jupiter APIs Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/direction.proto">jupiter/trader/ctp/v1/direction.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.DirectionEnum"><span class="badge">M</span>DirectionEnum</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.DirectionEnum.Direction"><span class="badge">E</span>DirectionEnum.Direction</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/offset_flag.proto">jupiter/trader/ctp/v1/offset_flag.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.OffsetFlagEnum"><span class="badge">M</span>OffsetFlagEnum</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag"><span class="badge">E</span>OffsetFlagEnum.OffsetFlag</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/hedge_flag.proto">jupiter/trader/ctp/v1/hedge_flag.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.HedgeFlagEnum"><span class="badge">M</span>HedgeFlagEnum</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag"><span class="badge">E</span>HedgeFlagEnum.HedgeFlag</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/instrument.proto">jupiter/trader/ctp/v1/instrument.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Instrument"><span class="badge">M</span>Instrument</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Instrument.InstLifePhase"><span class="badge">E</span>Instrument.InstLifePhase</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Instrument.PositionDateType"><span class="badge">E</span>Instrument.PositionDateType</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Instrument.PositionType"><span class="badge">E</span>Instrument.PositionType</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Instrument.ProductClass"><span class="badge">E</span>Instrument.ProductClass</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/investor_position.proto">jupiter/trader/ctp/v1/investor_position.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.InvestorPosition"><span class="badge">M</span>InvestorPosition</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.InvestorPosition.PosiDirection"><span class="badge">E</span>InvestorPosition.PosiDirection</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.InvestorPosition.PositionDate"><span class="badge">E</span>InvestorPosition.PositionDate</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/trading_account.proto">jupiter/trader/ctp/v1/trading_account.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.TradingAccount"><span class="badge">M</span>TradingAccount</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/order.proto">jupiter/trader/ctp/v1/order.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order"><span class="badge">M</span>Order</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.ContingentCondition"><span class="badge">E</span>Order.ContingentCondition</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.ForceCloseReason"><span class="badge">E</span>Order.ForceCloseReason</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.OrderPriceType"><span class="badge">E</span>Order.OrderPriceType</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.OrderSource"><span class="badge">E</span>Order.OrderSource</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.OrderStatus"><span class="badge">E</span>Order.OrderStatus</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.OrderSubmitStatus"><span class="badge">E</span>Order.OrderSubmitStatus</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.OrderType"><span class="badge">E</span>Order.OrderType</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.TimeCondition"><span class="badge">E</span>Order.TimeCondition</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Order.VolumeCondition"><span class="badge">E</span>Order.VolumeCondition</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/order_action.proto">jupiter/trader/ctp/v1/order_action.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.OrderAction"><span class="badge">M</span>OrderAction</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.OrderAction.ActionFlag"><span class="badge">E</span>OrderAction.ActionFlag</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.OrderAction.OrderActionStatus"><span class="badge">E</span>OrderAction.OrderActionStatus</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/trade.proto">jupiter/trader/ctp/v1/trade.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Trade"><span class="badge">M</span>Trade</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Trade.PriceSource"><span class="badge">E</span>Trade.PriceSource</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Trade.TradeType"><span class="badge">E</span>Trade.TradeType</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Trade.TradingRole"><span class="badge">E</span>Trade.TradingRole</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/error.proto">jupiter/trader/ctp/v1/error.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Error"><span class="badge">M</span>Error</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.ResponseInfo"><span class="badge">M</span>ResponseInfo</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.Source"><span class="badge">E</span>Source</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/direction.proto">jupiter/trader/ctp/v1/direction.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.DirectionEnum">DirectionEnum</h3>
+        <p>买卖方向</p>
+
+        
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.DirectionEnum.Direction">DirectionEnum.Direction</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BUY</td>
+                <td>0</td>
+                <td><p>(char)'0' 多</p></td>
+              </tr>
+            
+              <tr>
+                <td>SELL</td>
+                <td>1</td>
+                <td><p>(char)'1' 空</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/offset_flag.proto">jupiter/trader/ctp/v1/offset_flag.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.OffsetFlagEnum">OffsetFlagEnum</h3>
+        <p>买卖方向</p>
+
+        
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag">OffsetFlagEnum.OffsetFlag</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>OPEN</td>
+                <td>0</td>
+                <td><p>(char)'0' 开仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>CLOSE</td>
+                <td>1</td>
+                <td><p>(char)'1' 平仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>FORCE_CLOSE</td>
+                <td>2</td>
+                <td><p>(char)'2' 强平</p></td>
+              </tr>
+            
+              <tr>
+                <td>CLOSE_TODAY</td>
+                <td>3</td>
+                <td><p>(char)'3' 平今</p></td>
+              </tr>
+            
+              <tr>
+                <td>CLOSE_YESTERDAY</td>
+                <td>4</td>
+                <td><p>(char)'4' 平昨</p></td>
+              </tr>
+            
+              <tr>
+                <td>FORCE_OFF</td>
+                <td>5</td>
+                <td><p>(char)'5' 强减</p></td>
+              </tr>
+            
+              <tr>
+                <td>LOCAL_FORCE_CLOSE</td>
+                <td>6</td>
+                <td><p>(char)'6' 本地强平</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/hedge_flag.proto">jupiter/trader/ctp/v1/hedge_flag.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.HedgeFlagEnum">HedgeFlagEnum</h3>
+        <p>投机套保标志类型</p>
+
+        
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag">HedgeFlagEnum.HedgeFlag</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SPECULATION</td>
+                <td>0</td>
+                <td><p>(char)'1' 投机</p></td>
+              </tr>
+            
+              <tr>
+                <td>ARBITRAGE</td>
+                <td>1</td>
+                <td><p>(char)'2' 套利</p></td>
+              </tr>
+            
+              <tr>
+                <td>HEDGE</td>
+                <td>2</td>
+                <td><p>(char)'3' 套保</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/instrument.proto">jupiter/trader/ctp/v1/instrument.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Instrument">Instrument</h3>
+        <p>合约</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentName</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约名称 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeInstID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约在交易所的代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>productID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>产品代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>productClass</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Instrument.ProductClass">Instrument.ProductClass</a></td>
+                  <td></td>
+                  <td><p>产品类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deliveryYear</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>交割年份 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deliveryMonth</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>交割月 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>maxMarketOrderVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>市价单最大下单量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>minMarketOrderVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>市价单最大下单量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>maxLimitOrderVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>市价单最大下单量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>minLimitOrderVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>市价单最大下单量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volumeMultiple</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>合约数量乘数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>priceTick</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>最小变动价位 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>createDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>创建日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>openDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>上市日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>expireDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>到期日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>startDelivDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>开始交割日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>endDelivDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>结束交割日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instLifePhase</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Instrument.InstLifePhase">Instrument.InstLifePhase</a></td>
+                  <td></td>
+                  <td><p>合约生命周期状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>isTrading</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>当前是否交易 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionType</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Instrument.PositionType">Instrument.PositionType</a></td>
+                  <td></td>
+                  <td><p>持仓类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionDateType</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Instrument.PositionDateType">Instrument.PositionDateType</a></td>
+                  <td></td>
+                  <td><p>持仓日期类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>longMarginRatio</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>多头保证金率 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>shortMarginRatio</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>空头保证金率 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Instrument.InstLifePhase">Instrument.InstLifePhase</h3>
+        <p>合约生命周期状态类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NOT_START</td>
+                <td>0</td>
+                <td><p>(char)'0' 未上市</p></td>
+              </tr>
+            
+              <tr>
+                <td>STARTED</td>
+                <td>1</td>
+                <td><p>(char)'1' 上市</p></td>
+              </tr>
+            
+              <tr>
+                <td>PAUSE</td>
+                <td>2</td>
+                <td><p>(char)'2' 停牌</p></td>
+              </tr>
+            
+              <tr>
+                <td>EXPIRED</td>
+                <td>3</td>
+                <td><p>(char)'3' 到期</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Instrument.PositionDateType">Instrument.PositionDateType</h3>
+        <p>持仓日期类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>USE_HISTORY</td>
+                <td>0</td>
+                <td><p>(char)'1' 使用历史持仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>NO_USE_HISTORY</td>
+                <td>1</td>
+                <td><p>(char)'2' 不使用历史持仓</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Instrument.PositionType">Instrument.PositionType</h3>
+        <p>持仓类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NET</td>
+                <td>0</td>
+                <td><p>(char)'1' 净持仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>GROSS</td>
+                <td>1</td>
+                <td><p>(char)'2' 综合持仓</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Instrument.ProductClass">Instrument.ProductClass</h3>
+        <p>产品类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>FUTURE</td>
+                <td>0</td>
+                <td><p>(char)'1' 期货</p></td>
+              </tr>
+            
+              <tr>
+                <td>OPTIONS</td>
+                <td>1</td>
+                <td><p>(char)'2' 期权</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMBINATION</td>
+                <td>2</td>
+                <td><p>(char)'3' 组合</p></td>
+              </tr>
+            
+              <tr>
+                <td>SPOT</td>
+                <td>3</td>
+                <td><p>(char)'4' 即期</p></td>
+              </tr>
+            
+              <tr>
+                <td>EFP</td>
+                <td>4</td>
+                <td><p>(char)'5' 期转现</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/investor_position.proto">jupiter/trader/ctp/v1/investor_position.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.InvestorPosition">InvestorPosition</h3>
+        <p>投资者持仓</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>经纪公司代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>投资者代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>posiDirection</td>
+                  <td><a href="#jupiter.trader.ctp.v1.InvestorPosition.PosiDirection">InvestorPosition.PosiDirection</a></td>
+                  <td></td>
+                  <td><p>持仓多空方向 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hedgeFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag">HedgeFlagEnum.HedgeFlag</a></td>
+                  <td></td>
+                  <td><p>投机套保标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionDate</td>
+                  <td><a href="#jupiter.trader.ctp.v1.InvestorPosition.PositionDate">InvestorPosition.PositionDate</a></td>
+                  <td></td>
+                  <td><p>持仓日期 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ydPosition</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>上日持仓 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>position</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>今日持仓 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>longFrozen</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>多头冻结 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>shortFrozen</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>空头冻结 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>longFrozenAmount</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>开仓冻结金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>shortFrozenAmount</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>开仓冻结金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>openVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>开仓量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>平仓量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>openAmount</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>开仓金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeAmount</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>平仓金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionCost</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>持仓成本 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次占用的保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>useMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>占用的保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frozenMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>冻结的保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frozenCash</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>冻结的资金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frozenCommission</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>冻结的手续费 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cashIn</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>资金差额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>commission</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>手续费 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeProfit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>平仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionProfit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>持仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preSettlementPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次结算价 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>settlementPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>本次结算价 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingDay</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>settlementID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>结算编号 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.InvestorPosition.PosiDirection">InvestorPosition.PosiDirection</h3>
+        <p>持仓多空方向类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NET</td>
+                <td>0</td>
+                <td><p>(char)'1' 净</p></td>
+              </tr>
+            
+              <tr>
+                <td>LONG</td>
+                <td>1</td>
+                <td><p>(char)'2' 多头</p></td>
+              </tr>
+            
+              <tr>
+                <td>SHORT</td>
+                <td>2</td>
+                <td><p>(char)'3' 空头</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.InvestorPosition.PositionDate">InvestorPosition.PositionDate</h3>
+        <p>持仓日期类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>TODAY</td>
+                <td>0</td>
+                <td><p>(char)'1' 今日持仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>HISTORY</td>
+                <td>1</td>
+                <td><p>(char)'2' 历史持仓</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/trading_account.proto">jupiter/trader/ctp/v1/trading_account.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.TradingAccount">TradingAccount</h3>
+        <p>资金账户</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>经纪公司代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>accountID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>投资者帐号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preMortgage</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次质押金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preCredit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次信用额度 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preDeposit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次存款额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preBalance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次结算准备金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>上次占用的保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>interestBase</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>利息基数 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>interest</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>利息收入 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deposit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>入金金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>withdraw</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>出金金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frozenMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>冻结的保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frozenCash</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>冻结的资金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frozenCommission</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>冻结的手续费 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>currMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>当前保证金总额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cashIn</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>资金差额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>commission</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>手续费 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeProfit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>平仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionProfit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>持仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>期货结算准备金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>available</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>可用资金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>withdrawQuota</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>可取资金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reserve</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>基本准备金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingDay</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>settlementID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>结算编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>credit</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>信用额度 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mortgage</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>质押金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>交易所保证金 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/order.proto">jupiter/trader/ctp/v1/order.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Order">Order</h3>
+        <p>报单</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>经纪公司代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>投资者代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderRef</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单引用 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>userID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用户代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderPriceType</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.OrderPriceType">Order.OrderPriceType</a></td>
+                  <td></td>
+                  <td><p>报单价格条件 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>direction</td>
+                  <td><a href="#jupiter.trader.ctp.v1.DirectionEnum.Direction">DirectionEnum.Direction</a></td>
+                  <td></td>
+                  <td><p>买卖方向 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>combOffsetFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag">OffsetFlagEnum.OffsetFlag</a></td>
+                  <td></td>
+                  <td><p>组合开平标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>combHedgeFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag">HedgeFlagEnum.HedgeFlag</a></td>
+                  <td></td>
+                  <td><p>组合投机套保标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limitPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>价格 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volumeTotalOriginal</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>数量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timeCondition</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.TimeCondition">Order.TimeCondition</a></td>
+                  <td></td>
+                  <td><p>有效期类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>GTDDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>GTD 日期 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volumeCondition</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.VolumeCondition">Order.VolumeCondition</a></td>
+                  <td></td>
+                  <td><p>成交量类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>minVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>最小成交量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>contingentCondition</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.ContingentCondition">Order.ContingentCondition</a></td>
+                  <td></td>
+                  <td><p>触发条件 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>stopPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>止损价 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>forceCloseReason</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.ForceCloseReason">Order.ForceCloseReason</a></td>
+                  <td></td>
+                  <td><p>强平原因 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>isAutoSuspend</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>自动挂起标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>businessUnit</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>业务单元 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>requestID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>请求编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderLocalID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>本地报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>participantID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>会员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clientID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>客户代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeInstID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约在交易所的代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>traderID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所交易员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>installID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>安装编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderSubmitStatus</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.OrderSubmitStatus">Order.OrderSubmitStatus</a></td>
+                  <td></td>
+                  <td><p>报单提交状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>notifySequence</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>报单提示序号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingDay</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易日 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>settlementID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>结算编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderSysID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderSource</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.OrderSource">Order.OrderSource</a></td>
+                  <td></td>
+                  <td><p>报单来源 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderStatus</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.OrderStatus">Order.OrderStatus</a></td>
+                  <td></td>
+                  <td><p>报单状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderType</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order.OrderType">Order.OrderType</a></td>
+                  <td></td>
+                  <td><p>报单类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volumeTraded</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>今成交数量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volumeTotal</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>剩余数量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>insertDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单日期 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>insertTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>插入时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activeTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>激活时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>suspendTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>挂起时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updateTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>最后修改时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>cancelTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>撤销时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>activeTraderID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>最后修改交易所交易员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clearingPartID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>结算会员编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sequenceNo</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>序号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frontID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>前置编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sessionID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>会话编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>userProductInfo</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用户端产品信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>statusMsg</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>状态信息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.ContingentCondition">Order.ContingentCondition</h3>
+        <p>触发条件类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>IMMEDIATELY</td>
+                <td>0</td>
+                <td><p>(char)'1' 立即</p></td>
+              </tr>
+            
+              <tr>
+                <td>TOUCH</td>
+                <td>1</td>
+                <td><p>(char)'2' 止损</p></td>
+              </tr>
+            
+              <tr>
+                <td>TOUCH_PROFIT</td>
+                <td>2</td>
+                <td><p>(char)'3' 止赢</p></td>
+              </tr>
+            
+              <tr>
+                <td>PARKED_ORDER</td>
+                <td>3</td>
+                <td><p>(char)'4' 预埋单</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_GREATER_THAN_STOP_PRICE</td>
+                <td>4</td>
+                <td><p>(char)'5' 最新价大于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_GREATER_EQUAL_STOP_PRICE</td>
+                <td>5</td>
+                <td><p>(char)'6' 最新价大于等于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_LESSER_THAN_STOP_PRICE</td>
+                <td>6</td>
+                <td><p>(char)'7' 最新价小于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_LESSER_EQUAL_STOP_PRICE</td>
+                <td>7</td>
+                <td><p>(char)'8' 最新价小于等于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_GREATER_THAN_STOP_PRICE</td>
+                <td>8</td>
+                <td><p>(char)'9' 卖一价大于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_GREATER_EQUAL_STOP_PRICE</td>
+                <td>9</td>
+                <td><p>(char)'A' 卖一价大于等于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_LESSER_THAN_STOP_PRICE</td>
+                <td>10</td>
+                <td><p>(char)'B' 卖一价小于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_LESSER_EQUAL_STOP_PRICE</td>
+                <td>11</td>
+                <td><p>(char)'C' 卖一价小于等于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_GREATER_THAN_STOP_PRICE</td>
+                <td>12</td>
+                <td><p>(char)'D' 买一价大于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_GREATER_EQUAL_STOP_PRICE</td>
+                <td>13</td>
+                <td><p>(char)'E' 买一价大于等于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_LESSER_THAN_STOP_PRICE</td>
+                <td>14</td>
+                <td><p>(char)'F' 买一价小于条件价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_LESSER_EQUAL_STOP_PRICE</td>
+                <td>15</td>
+                <td><p>(char)'H' 买一价小于等于条件价</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.ForceCloseReason">Order.ForceCloseReason</h3>
+        <p>强平原因类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NOT_FORCE_CLOSE</td>
+                <td>0</td>
+                <td><p>(char)'0' 非强平</p></td>
+              </tr>
+            
+              <tr>
+                <td>LACK_DEPOSIT</td>
+                <td>1</td>
+                <td><p>(char)'1' 资金不足</p></td>
+              </tr>
+            
+              <tr>
+                <td>CLIENT_OVER_POSITION_LIMIT</td>
+                <td>2</td>
+                <td><p>(char)'2' 客户超仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>MEMBER_OVER_POSITION_LIMIT</td>
+                <td>3</td>
+                <td><p>(char)'3' 会员超仓</p></td>
+              </tr>
+            
+              <tr>
+                <td>NOT_MULTIPLE</td>
+                <td>4</td>
+                <td><p>(char)'4' 持仓非整数倍</p></td>
+              </tr>
+            
+              <tr>
+                <td>VIOLATION</td>
+                <td>5</td>
+                <td><p>(char)'5' 违规</p></td>
+              </tr>
+            
+              <tr>
+                <td>OTHER</td>
+                <td>6</td>
+                <td><p>(char)'6' 其它</p></td>
+              </tr>
+            
+              <tr>
+                <td>PERSON_DELIV</td>
+                <td>7</td>
+                <td><p>(char)'7' 自然人临近交割</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.OrderPriceType">Order.OrderPriceType</h3>
+        <p>报单价格条件类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ANY_PRICE</td>
+                <td>0</td>
+                <td><p>(char)'1' 任意价</p></td>
+              </tr>
+            
+              <tr>
+                <td>LIMIT_PRICE</td>
+                <td>1</td>
+                <td><p>(char)'2' 限价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BEST_PRICE</td>
+                <td>2</td>
+                <td><p>(char)'3' 最优价</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE</td>
+                <td>3</td>
+                <td><p>(char)'4' 最新价</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_PLUS_ONE_TICKS</td>
+                <td>4</td>
+                <td><p>(char)'5' 最新价浮动上浮1个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_PLUS_TWO_TICKS</td>
+                <td>5</td>
+                <td><p>(char)'6' 最新价浮动上浮2个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>LAST_PRICE_PLUS_THREE_TICKS</td>
+                <td>6</td>
+                <td><p>(char)'7' 最新价浮动上浮3个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_1</td>
+                <td>7</td>
+                <td><p>(char)'8' 卖一价</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_1_PLUS_ONE_TICKS</td>
+                <td>8</td>
+                <td><p>(char)'9' 卖一价浮动上浮1个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_1_PLUS_TWO_TICKS</td>
+                <td>9</td>
+                <td><p>(char)'A' 卖一价浮动上浮2个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>ASK_PRICE_1_PLUS_THREE_TICKS</td>
+                <td>10</td>
+                <td><p>(char)'B' 卖一价浮动上浮3个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_1</td>
+                <td>11</td>
+                <td><p>(char)'C' 买一价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_1_PLUS_ONE_TICKS</td>
+                <td>12</td>
+                <td><p>(char)'D' 买一价浮动上浮1个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_1_PLUS_TWO_TICKS</td>
+                <td>13</td>
+                <td><p>(char)'E' 买一价浮动上浮2个ticks</p></td>
+              </tr>
+            
+              <tr>
+                <td>BID_PRICE_1_PLUS_THREE_TICKS</td>
+                <td>14</td>
+                <td><p>(char)'F' 买一价浮动上浮3个ticks</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.OrderSource">Order.OrderSource</h3>
+        <p>报单来源类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>PARTICIPANT</td>
+                <td>0</td>
+                <td><p>(char)'0' 来自参与者</p></td>
+              </tr>
+            
+              <tr>
+                <td>ADMINISTRATOR</td>
+                <td>1</td>
+                <td><p>(char)'1' 来自管理员</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.OrderStatus">Order.OrderStatus</h3>
+        <p>报单状态类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ALL_TRADED</td>
+                <td>0</td>
+                <td><p>(char)'0' 全部成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>PART_TRADED_QUEUEING</td>
+                <td>1</td>
+                <td><p>(char)'1' 部分成交还在队列中</p></td>
+              </tr>
+            
+              <tr>
+                <td>PART_TRADED_NOT_QUEUEING</td>
+                <td>2</td>
+                <td><p>(char)'2' 部分成交不在队列中</p></td>
+              </tr>
+            
+              <tr>
+                <td>NO_TRADE_QUEUEING</td>
+                <td>3</td>
+                <td><p>(char)'3' 未成交还在队列中</p></td>
+              </tr>
+            
+              <tr>
+                <td>NO_TRADE_NOT_QUEUEING</td>
+                <td>4</td>
+                <td><p>(char)'4' 未成交不在队列中</p></td>
+              </tr>
+            
+              <tr>
+                <td>CANCELED</td>
+                <td>5</td>
+                <td><p>(char)'5' 撤单</p></td>
+              </tr>
+            
+              <tr>
+                <td>UNKNOWN</td>
+                <td>6</td>
+                <td><p>(char)'a' 未知-订单已提交交易所，未从交易所收到确认信息</p></td>
+              </tr>
+            
+              <tr>
+                <td>NOT_TOUCHED</td>
+                <td>7</td>
+                <td><p>(char)'b' 尚未触发</p></td>
+              </tr>
+            
+              <tr>
+                <td>TOUCHED</td>
+                <td>8</td>
+                <td><p>(char)'c' 已触发</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.OrderSubmitStatus">Order.OrderSubmitStatus</h3>
+        <p>报单提交状态类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>INSERT_SUBMITTED</td>
+                <td>0</td>
+                <td><p>(char)'0' 已经提交</p></td>
+              </tr>
+            
+              <tr>
+                <td>CANCEL_SUBMITTED</td>
+                <td>1</td>
+                <td><p>(char)'1' 撤单已经提交</p></td>
+              </tr>
+            
+              <tr>
+                <td>MODIFY_SUBMITTED</td>
+                <td>2</td>
+                <td><p>(char)'2' 修改已经提交</p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCEPTED</td>
+                <td>3</td>
+                <td><p>(char)'3' 已经接受</p></td>
+              </tr>
+            
+              <tr>
+                <td>INSERT_REJECTED</td>
+                <td>4</td>
+                <td><p>(char)'4' 报单已经被拒绝</p></td>
+              </tr>
+            
+              <tr>
+                <td>CANCEL_REJECTED</td>
+                <td>5</td>
+                <td><p>(char)'5' 撤单已经被拒绝</p></td>
+              </tr>
+            
+              <tr>
+                <td>MODIFY_REJECTED</td>
+                <td>6</td>
+                <td><p>(char)'6' 改单已经被拒绝</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.OrderType">Order.OrderType</h3>
+        <p>报单类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NORMAL</td>
+                <td>0</td>
+                <td><p>(char)'0' 正常</p></td>
+              </tr>
+            
+              <tr>
+                <td>DERIVE_FROM_QUOTE</td>
+                <td>1</td>
+                <td><p>(char)'1' 报价衍生</p></td>
+              </tr>
+            
+              <tr>
+                <td>DERIVE_FROM_COMBINATION</td>
+                <td>2</td>
+                <td><p>(char)'2' 组合衍生</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMBINATION</td>
+                <td>3</td>
+                <td><p>(char)'3' 组合报单</p></td>
+              </tr>
+            
+              <tr>
+                <td>CONDITIONAL_ORDER</td>
+                <td>4</td>
+                <td><p>(char)'4' 条件单</p></td>
+              </tr>
+            
+              <tr>
+                <td>SWAP</td>
+                <td>5</td>
+                <td><p>(char)'5' 互换单</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.TimeCondition">Order.TimeCondition</h3>
+        <p>有效期类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>IOC</td>
+                <td>0</td>
+                <td><p>(char)'1' 立即完成，否则撤销</p></td>
+              </tr>
+            
+              <tr>
+                <td>GFS</td>
+                <td>1</td>
+                <td><p>(char)'2' 本节有效</p></td>
+              </tr>
+            
+              <tr>
+                <td>GFD</td>
+                <td>2</td>
+                <td><p>(char)'3' 当日有效</p></td>
+              </tr>
+            
+              <tr>
+                <td>GTD</td>
+                <td>3</td>
+                <td><p>(char)'4' 指定日期前有效</p></td>
+              </tr>
+            
+              <tr>
+                <td>GTC</td>
+                <td>4</td>
+                <td><p>(char)'5' 撤销前有效</p></td>
+              </tr>
+            
+              <tr>
+                <td>GFA</td>
+                <td>5</td>
+                <td><p>(char)'6' 集合竞价有效</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Order.VolumeCondition">Order.VolumeCondition</h3>
+        <p>成交量类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>AV</td>
+                <td>0</td>
+                <td><p>(char)'1' 任何数量</p></td>
+              </tr>
+            
+              <tr>
+                <td>MV</td>
+                <td>1</td>
+                <td><p>(char)'2' 最小数量</p></td>
+              </tr>
+            
+              <tr>
+                <td>CV</td>
+                <td>2</td>
+                <td><p>(char)'3' 全部数量</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/order_action.proto">jupiter/trader/ctp/v1/order_action.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.OrderAction">OrderAction</h3>
+        <p>报单操作</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>经纪公司代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>投资者代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderActionRef</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>报单操作引用 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderRef</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单引用 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>requestID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>请求编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>frontID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>前置编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sessionID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>会话编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderSysID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actionFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.OrderAction.ActionFlag">OrderAction.ActionFlag</a></td>
+                  <td></td>
+                  <td><p>操作标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limitPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>价格 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volumeChange</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>数量变化 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investUnitID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>ipAddress</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>ip地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>macAddress</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>mac地址 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actionDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>操作日期 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actionTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>操作时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>traderID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所交易员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>installID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>安装编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderLocalID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>本地报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>actionLocalID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>操作本地编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>participantID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>会员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clientID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>客户代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>businessUnit</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>业务单元 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderActionStatus</td>
+                  <td><a href="#jupiter.trader.ctp.v1.OrderAction.OrderActionStatus">OrderAction.OrderActionStatus</a></td>
+                  <td></td>
+                  <td><p>报单操作状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>userID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用户代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>statusMsg</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>状态信息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.OrderAction.ActionFlag">OrderAction.ActionFlag</h3>
+        <p>操作标志类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>DELETE</td>
+                <td>0</td>
+                <td><p>(char)'0' 删除</p></td>
+              </tr>
+            
+              <tr>
+                <td>MODIFY</td>
+                <td>1</td>
+                <td><p>(char)'3' 修改</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.OrderAction.OrderActionStatus">OrderAction.OrderActionStatus</h3>
+        <p>报单操作状态类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SUBMITTED</td>
+                <td>0</td>
+                <td><p>(char)'a' 已经提交</p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCEPTED</td>
+                <td>1</td>
+                <td><p>(char)'b' 已经接受</p></td>
+              </tr>
+            
+              <tr>
+                <td>REJECTED</td>
+                <td>2</td>
+                <td><p>(char)'c' 已经被拒绝</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/trade.proto">jupiter/trader/ctp/v1/trade.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Trade">Trade</h3>
+        <p>成交</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>经纪公司代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>投资者代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderRef</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单引用 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>userID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>用户代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>成交编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>direction</td>
+                  <td><a href="#jupiter.trader.ctp.v1.DirectionEnum.Direction">DirectionEnum.Direction</a></td>
+                  <td></td>
+                  <td><p>买卖方向 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderSysID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>participantID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>会员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clientID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>客户代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingRole</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Trade.TradingRole">Trade.TradingRole</a></td>
+                  <td></td>
+                  <td><p>交易角色 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeInstID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约在交易所的代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>offsetFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag">OffsetFlagEnum.OffsetFlag</a></td>
+                  <td></td>
+                  <td><p>开平标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hedgeFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag">HedgeFlagEnum.HedgeFlag</a></td>
+                  <td></td>
+                  <td><p>投机套保标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>price</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>价格 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>数量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradeDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>成交时期 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradeTime</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>成交时间 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradeType</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Trade.TradeType">Trade.TradeType</a></td>
+                  <td></td>
+                  <td><p>成交类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>priceSource</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Trade.PriceSource">Trade.PriceSource</a></td>
+                  <td></td>
+                  <td><p>成交价来源 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>traderID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所交易员代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderLocalID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>本地报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clearingPartID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>结算会员编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>businessUnit</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>业务单元 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sequenceNo</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>序号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingDay</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>本地报单编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>settlementID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>结算编号 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Trade.PriceSource">Trade.PriceSource</h3>
+        <p>成交价来源类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LAST_PRICE</td>
+                <td>0</td>
+                <td><p>(char)'0' 前成交价</p></td>
+              </tr>
+            
+              <tr>
+                <td>BUY</td>
+                <td>1</td>
+                <td><p>(char)'1' 买委托价</p></td>
+              </tr>
+            
+              <tr>
+                <td>SELL</td>
+                <td>2</td>
+                <td><p>(char)'2' 卖委托价</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Trade.TradeType">Trade.TradeType</h3>
+        <p>成交类型类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMMON</td>
+                <td>0</td>
+                <td><p>(char)'0' 普通成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>OPTIONS_EXECUTION</td>
+                <td>1</td>
+                <td><p>(char)'1' 期权执行</p></td>
+              </tr>
+            
+              <tr>
+                <td>OTC</td>
+                <td>2</td>
+                <td><p>(char)'2' OTC成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>EFP_DERIVED</td>
+                <td>3</td>
+                <td><p>(char)'3' 期转现衍生成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMBINATION_DERIVED</td>
+                <td>4</td>
+                <td><p>(char)'4' 组合衍生成交</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="jupiter.trader.ctp.v1.Trade.TradingRole">Trade.TradingRole</h3>
+        <p>交易角色类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BROKER</td>
+                <td>0</td>
+                <td><p>(char)'1' 代理</p></td>
+              </tr>
+            
+              <tr>
+                <td>HOST</td>
+                <td>1</td>
+                <td><p>(char)'2' 自营</p></td>
+              </tr>
+            
+              <tr>
+                <td>Maker</td>
+                <td>2</td>
+                <td><p>(char)'3' 做市商</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/error.proto">jupiter/trader/ctp/v1/error.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Error">Error</h3>
+        <p>请求错误</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>source</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Source">Source</a></td>
+                  <td></td>
+                  <td><p>错误来源 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>rspInfo</td>
+                  <td><a href="#jupiter.trader.ctp.v1.ResponseInfo">ResponseInfo</a></td>
+                  <td></td>
+                  <td><p>响应信息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>order</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Order">Order</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>orderAction</td>
+                  <td><a href="#jupiter.trader.ctp.v1.OrderAction">OrderAction</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>trade</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Trade">Trade</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrument</td>
+                  <td><a href="#jupiter.trader.ctp.v1.Instrument">Instrument</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorPosition</td>
+                  <td><a href="#jupiter.trader.ctp.v1.InvestorPosition">InvestorPosition</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingAccount</td>
+                  <td><a href="#jupiter.trader.ctp.v1.TradingAccount">TradingAccount</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="jupiter.trader.ctp.v1.ResponseInfo">ResponseInfo</h3>
+        <p>响应信息类型</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>errorID</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>错误代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>errorMsg</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>错误消息 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.Source">Source</h3>
+        <p>错误来源类型</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>FRONT</td>
+                <td>0</td>
+                <td><p>来自CTP前置</p></td>
+              </tr>
+            
+              <tr>
+                <td>EXCHANGE</td>
+                <td>1</td>
+                <td><p>来自交易所</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+            <td>float64</td>
+            <td>double</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+            <td>float32</td>
+            <td>float</td>
+            <td>float</td>
+            <td>Float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>uint32</td>
+            <td>uint</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>uint64</td>
+            <td>ulong</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>integer</td>
+            <td>Bignum or Fixnum (as required)</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>integer/string</td>
+            <td>Bignum</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+            <td>bool</td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>TrueClass/FalseClass</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+            <td>string</td>
+            <td>string</td>
+            <td>string</td>
+            <td>String (UTF-8)</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+            <td>[]byte</td>
+            <td>ByteString</td>
+            <td>string</td>
+            <td>String (ASCII-8BIT)</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>

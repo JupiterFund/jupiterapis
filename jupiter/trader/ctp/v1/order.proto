@@ -182,106 +182,108 @@ message Order {
     // (char)'5' 互换单
     SWAP = 5;
   }
+  // 消息uuid
+  string UUID = 1;
   // 经纪公司代码
-  string brokerID = 1;
+  string brokerID = 2;
   // 投资者代码
-  string investorID = 2;
+  string investorID = 3;
   // 合约代码
-  string instrumentID = 3;
+  string instrumentID = 4;
   // 报单引用
-  string orderRef = 4;
+  string orderRef = 5;
   // 用户代码
-  string userID = 5;
+  string userID = 6;
   // 报单价格条件
-  OrderPriceType orderPriceType = 6;
+  OrderPriceType orderPriceType = 7;
   // 买卖方向
-  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 7;
+  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 8;
   // 组合开平标志
-  jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag combOffsetFlag = 8;
+  jupiter.trader.ctp.v1.OffsetFlagEnum.OffsetFlag combOffsetFlag = 9;
   // 组合投机套保标志
-  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag combHedgeFlag = 9;
+  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag combHedgeFlag = 10;
   // 价格
-  double limitPrice = 10;
+  double limitPrice = 11;
   // 数量
-  uint32 volumeTotalOriginal = 11;
+  uint32 volumeTotalOriginal = 12;
   // 有效期类型
-  TimeCondition timeCondition = 12;
+  TimeCondition timeCondition = 13;
   // GTD 日期
-  string gtdDate = 13;
+  string GTDDate = 14;
   // 成交量类型
-  VolumeCondition volumeCondition = 14;
+  VolumeCondition volumeCondition = 15;
   // 最小成交量
-  uint32 minVolume = 15;
+  uint32 minVolume = 16;
   // 触发条件
-  ContingentCondition contingentCondition = 16;
+  ContingentCondition contingentCondition = 17;
   // 止损价
-  double stopPrice = 17;
+  double stopPrice = 18;
   // 强平原因
-  ForceCloseReason forceCloseReason = 18;
+  ForceCloseReason forceCloseReason = 19;
   // 自动挂起标志
-  uint32 isAutoSuspend = 19;
+  uint32 isAutoSuspend = 20;
   // 业务单元
-  string businessUnit = 20;
+  string businessUnit = 21;
   // 请求编号
-  uint32 requestID = 21;
+  uint32 requestID = 22;
   // 本地报单编号
-  string orderLocalID = 22;
+  string orderLocalID = 23;
   // 交易所代码
-  string exchangeID = 23;
+  string exchangeID = 24;
   // 会员代码
-  string participantID = 24;
+  string participantID = 25;
   // 客户代码
-  string clientID = 25;
+  string clientID = 26;
   // 合约在交易所的代码
-  string exchangeInstID = 26;
+  string exchangeInstID = 27;
   // 交易所交易员代码
-  string traderID = 27;
+  string traderID = 28;
   // 安装编号
-  uint32 installID = 28;
+  uint32 installID = 29;
   // 报单提交状态
-  OrderSubmitStatus orderSubmitStatus = 29;
+  OrderSubmitStatus orderSubmitStatus = 30;
   // 报单提示序号
-  uint32 notifySequence = 30;
+  uint32 notifySequence = 31;
   // 交易日
-  string tradingDay = 31;
+  string tradingDay = 32;
   // 结算编号
-  string settlementID = 32;
+  string settlementID = 33;
   // 报单编号
-  string orderSysID = 33;
+  string orderSysID = 34;
   // 报单来源
-  OrderSource orderSource = 34;
+  OrderSource orderSource = 35;
   // 报单状态
-  OrderStatus orderStatus = 35;
+  OrderStatus orderStatus = 36;
   // 报单类型
-  OrderType orderType = 36;
+  OrderType orderType = 37;
   // 今成交数量
-  uint32 volumeTraded = 37;
+  uint32 volumeTraded = 38;
   // 剩余数量
-  uint32 volumeTotal = 38;
+  uint32 volumeTotal = 39;
   // 报单日期
-  string insertDate = 39;
+  string insertDate = 40;
   // 插入时间
-  string insertTime = 40;
+  string insertTime = 41;
   // 激活时间
-  string activeTime = 41;
+  string activeTime = 42;
   // 挂起时间
-  string suspendTime = 42;
+  string suspendTime = 43;
   // 最后修改时间
-  string updateTime = 43;
+  string updateTime = 44;
   // 撤销时间
-  string cancelTime = 44;
+  string cancelTime = 45;
   // 最后修改交易所交易员代码
-  string activeTraderID = 45;
+  string activeTraderID = 46;
   // 结算会员编号
-  string clearingPartID = 46;
+  string clearingPartID = 47;
   // 序号
-  uint32 sequenceNo = 47;
+  uint32 sequenceNo = 48;
   // 前置编号
-  uint32 frontID = 48;
+  uint32 frontID = 49;
   // 会话编号
-  uint32 sessionID = 49;
+  uint32 sessionID = 50;
   // 用户端产品信息
-  string userProductInfo = 50;
+  string userProductInfo = 51;
   // 状态信息
-  string statusMsg = 51;
+  string statusMsg = 52;
 }
