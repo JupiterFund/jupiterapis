@@ -143,9 +143,7 @@ Container for enum describing possible markets.
 | offerPrice | [uint64](#uint64) | repeated | 申卖价 N(9,3) |
 | offerQty | [uint64](#uint64) | repeated | 申卖量 N(9,0) |
 | auctionPrice | [uint64](#uint64) |  | 波动性中断参考价 |
-| auctionQty | [uint64](#uint64) |  | 波动性中断集合竞价虚拟匹配量
-
-* 部分特殊字段 |
+| auctionQty | [uint64](#uint64) |  | 波动性中断集合竞价虚拟匹配量 部分特殊字段 |
 | avgPrice | [uint32](#uint32) |  | 郑商所期货均价 |
 
 
@@ -182,9 +180,7 @@ Container for enum describing possible markets.
 | date | [uint32](#uint32) |  | 自然日 yyyyMMdd |
 | time | [uint32](#uint32) |  | HHmmssSSS |
 | timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息 |
-| tradeDate | [uint32](#uint32) |  | 交易日期 yyyyMMdd
-
-* 上交所数据规范 |
+| tradeDate | [uint32](#uint32) |  | 交易日期 yyyyMMdd 上交所数据规范 |
 | preClosePx | [uint64](#uint64) |  | 昨收盘价 N(9,3) |
 | openPx | [uint64](#uint64) |  | 开盘价 N(9,3) |
 | highPx | [uint64](#uint64) |  | 最高价 N(9,3) |
@@ -206,9 +202,7 @@ Container for enum describing possible markets.
 | yieldToMaturity | [uint64](#uint64) |  | 到期收益率 N(6,4) |
 | totalWarrantExecQty | [uint64](#uint64) |  | 权证执行的总数量 N(9,0) 深市数据不清楚 |
 | warLowerPx | [uint64](#uint64) |  | 权证跌停价格 N(9,3) |
-| warUpperPx | [uint64](#uint64) |  | 权证涨停价格 N(9,3)
-
-* QTS独有数据 |
+| warUpperPx | [uint64](#uint64) |  | 权证涨停价格 N(9,3) QTS独有数据 |
 | etfBuyNumber | [uint32](#uint32) |  | ETF申购笔数 |
 | etfBuyAmount | [uint64](#uint64) |  | ETF申购量 |
 | etfBuyMoney | [uint64](#uint64) |  | ETF申购额 |
@@ -232,9 +226,7 @@ Container for enum describing possible markets.
 | bidNumOrders | [uint32](#uint32) | repeated | 买入总委托笔数 |
 | offerPrice | [uint64](#uint64) | repeated | 申卖价 N(9,3) |
 | offerQty | [uint64](#uint64) | repeated | 申卖量 N(9,0) |
-| offerNumOrders | [uint32](#uint32) | repeated | 卖出总委托笔数
-
-* 部分特殊字段 |
+| offerNumOrders | [uint32](#uint32) | repeated | 卖出总委托笔数 部分特殊字段 |
 | priceUpLimit | [uint64](#uint64) |  | 涨停价 N(9,3) |
 | priceDownLimit | [uint64](#uint64) |  | 跌停价 N(9,3) |
 | priceUpDown1 | [uint64](#uint64) |  | 升跌1 N(9,3) |
