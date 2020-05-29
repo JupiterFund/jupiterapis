@@ -234,6 +234,25 @@
         
           
           <li>
+            <a href="#jupiter/trader/ctp/v1/trade_type.proto">jupiter/trader/ctp/v1/trade_type.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.TradeTypeEnum"><span class="badge">M</span>TradeTypeEnum</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.TradeTypeEnum.TradeType"><span class="badge">E</span>TradeTypeEnum.TradeType</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#jupiter/trader/ctp/v1/instrument.proto">jupiter/trader/ctp/v1/instrument.proto</a>
             <ul>
               
@@ -280,6 +299,21 @@
                 <li>
                   <a href="#jupiter.trader.ctp.v1.InvestorPosition.PositionDate"><span class="badge">E</span>InvestorPosition.PositionDate</a>
                 </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/investor_position_detail.proto">jupiter/trader/ctp/v1/investor_position_detail.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.InvestorPositionDetail"><span class="badge">M</span>InvestorPositionDetail</a>
+                </li>
+              
               
               
               
@@ -387,10 +421,6 @@
               
                 <li>
                   <a href="#jupiter.trader.ctp.v1.Trade.PriceSource"><span class="badge">E</span>Trade.PriceSource</a>
-                </li>
-              
-                <li>
-                  <a href="#jupiter.trader.ctp.v1.Trade.TradeType"><span class="badge">E</span>Trade.TradeType</a>
                 </li>
               
                 <li>
@@ -588,6 +618,68 @@
                 <td>HEDGE</td>
                 <td>2</td>
                 <td><p>(char)'3' 套保</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/trade_type.proto">jupiter/trader/ctp/v1/trade_type.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.TradeTypeEnum">TradeTypeEnum</h3>
+        <p>成交类型类型</p>
+
+        
+
+        
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.TradeTypeEnum.TradeType">TradeTypeEnum.TradeType</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COMMON</td>
+                <td>0</td>
+                <td><p>(char)'0' 普通成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>OPTIONS_EXECUTION</td>
+                <td>1</td>
+                <td><p>(char)'1' 期权执行</p></td>
+              </tr>
+            
+              <tr>
+                <td>OTC</td>
+                <td>2</td>
+                <td><p>(char)'2' OTC成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>EFP_DERIVED</td>
+                <td>3</td>
+                <td><p>(char)'3' 期转现衍生成交</p></td>
+              </tr>
+            
+              <tr>
+                <td>COMBINATION_DERIVED</td>
+                <td>4</td>
+                <td><p>(char)'4' 组合衍生成交</p></td>
               </tr>
             
           </tbody>
@@ -1227,6 +1319,219 @@
             
           </tbody>
         </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/investor_position_detail.proto">jupiter/trader/ctp/v1/investor_position_detail.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.InvestorPositionDetail">InvestorPositionDetail</h3>
+        <p>投资者持仓明细</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>UUID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>消息uuid </p></td>
+                </tr>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>经纪公司代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>投资者代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>direction</td>
+                  <td><a href="#jupiter.trader.ctp.v1.DirectionEnum.Direction">DirectionEnum.Direction</a></td>
+                  <td></td>
+                  <td><p>买卖 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hedgeFlag</td>
+                  <td><a href="#jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag">HedgeFlagEnum.HedgeFlag</a></td>
+                  <td></td>
+                  <td><p>投机套保标志 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>openDate</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>开仓日期 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>成交编号 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>volume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>数量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>openPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>开仓价 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradeType</td>
+                  <td><a href="#jupiter.trader.ctp.v1.TradeTypeEnum.TradeType">TradeTypeEnum.TradeType</a></td>
+                  <td></td>
+                  <td><p>成交类型 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>combInstrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>组合合约代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易所代码 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeProfitByDate</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>逐日盯市平仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeProfitByTrade</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>逐笔对冲平仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionProfitByDate</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>逐日盯市持仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>positionProfitByTrade</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>逐笔对冲持仓盈亏 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>margin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>投资者保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchMargin</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>交易所保证金 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>marginRateByMoney</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>保证金率 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>marginRateByVolume</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>保证金率 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeVolume</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p>平仓量 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>closeAmount</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>平仓金额 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>lastSettlementPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>昨结算价 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>settlementPrice</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p>结算价 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tradingDay</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>交易日 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
       
 
       
@@ -2838,7 +3143,7 @@
               
                 <tr>
                   <td>tradeType</td>
-                  <td><a href="#jupiter.trader.ctp.v1.Trade.TradeType">Trade.TradeType</a></td>
+                  <td><a href="#jupiter.trader.ctp.v1.TradeTypeEnum.TradeType">TradeTypeEnum.TradeType</a></td>
                   <td></td>
                   <td><p>成交类型 </p></td>
                 </tr>
@@ -2932,47 +3237,6 @@
                 <td>SELL</td>
                 <td>2</td>
                 <td><p>(char)'2' 卖委托价</p></td>
-              </tr>
-            
-          </tbody>
-        </table>
-      
-        <h3 id="jupiter.trader.ctp.v1.Trade.TradeType">Trade.TradeType</h3>
-        <p>成交类型类型</p>
-        <table class="enum-table">
-          <thead>
-            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
-          </thead>
-          <tbody>
-            
-              <tr>
-                <td>COMMON</td>
-                <td>0</td>
-                <td><p>(char)'0' 普通成交</p></td>
-              </tr>
-            
-              <tr>
-                <td>OPTIONS_EXECUTION</td>
-                <td>1</td>
-                <td><p>(char)'1' 期权执行</p></td>
-              </tr>
-            
-              <tr>
-                <td>OTC</td>
-                <td>2</td>
-                <td><p>(char)'2' OTC成交</p></td>
-              </tr>
-            
-              <tr>
-                <td>EFP_DERIVED</td>
-                <td>3</td>
-                <td><p>(char)'3' 期转现衍生成交</p></td>
-              </tr>
-            
-              <tr>
-                <td>COMBINATION_DERIVED</td>
-                <td>4</td>
-                <td><p>(char)'4' 组合衍生成交</p></td>
               </tr>
             
           </tbody>

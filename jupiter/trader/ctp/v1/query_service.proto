@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+import "jupiter/datastream/v1/future_data.proto";
+import "jupiter/trader/ctp/v1/instrument.proto";
+import "jupiter/trader/ctp/v1/investor_position.proto";
+import "jupiter/trader/ctp/v1/investor_position_detail.proto";
+import "jupiter/trader/ctp/v1/trading_account.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 合约查询请求
+message QueryInstrumentField {
+  string instrumentID = 1;
+  string exchangeID = 2;
+  string exchangeInstID = 3;
+  string productID = 4;
+}
+
+// 持仓查询请求
+message QueryInvestorPositionField {
+  string brokerID = 1;
+  string investorID = 2;
+  string instrumentID = 3;
+  string exchangeID = 4;
+  string investUnitID = 5;
+}
+
+// 持仓明细查询请求
+message QueryInvestorPositionDetailField {
+  string brokerID = 1;
+  string investorID = 2;
+  string instrumentID = 3;
+  string exchangeID = 4;
+  string investUnitID = 5;
+}
+
+// 交易账户查询请求
+message QueryTradingAccountField {
+  string brokerID = 1;
+  string investorID = 2;
+  string currencyID = 3;
+  string bizType = 4;
+  string accountID = 5;
+}
+
+// 行情数据查询请求
+message QueryDepthMarketDataField {
+  string instrumentID = 1;
+  string exchangeID = 2;
+}
+
+// Trader CTP 查询服务
+service QueryService {
+  // 合约查询
+  rpc QueryInstrument (QueryInstrumentField) returns (jupiter.trader.ctp.v1.Instrument) {}
+  // 持仓查询
+  rpc QueryInvestorPosition (QueryInvestorPositionField) returns (stream jupiter.trader.ctp.v1.InvestorPosition) {}
+  // 持仓明细查询
+  rpc QueryInvestorPositionDetail (QueryInvestorPositionDetailField) returns (stream jupiter.trader.ctp.v1.InvestorPositionDetail) {}
+  // 交易账户查询
+  rpc QueryTradingAccount (QueryTradingAccountField) returns (jupiter.trader.ctp.v1.TradingAccount) {}
+  // 行情数据查询
+  rpc QueryDepthMarketData (QueryDepthMarketDataField) returns (jupiter.datastream.v1.FutureData) {}
+}
