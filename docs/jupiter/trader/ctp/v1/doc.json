@@ -160,6 +160,64 @@
       "services": []
     },
     {
+      "name": "jupiter/trader/ctp/v1/trade_type.proto",
+      "description": "",
+      "package": "jupiter.trader.ctp.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [
+        {
+          "name": "TradeType",
+          "longName": "TradeTypeEnum.TradeType",
+          "fullName": "jupiter.trader.ctp.v1.TradeTypeEnum.TradeType",
+          "description": "",
+          "values": [
+            {
+              "name": "COMMON",
+              "number": "0",
+              "description": "(char)'0' 普通成交"
+            },
+            {
+              "name": "OPTIONS_EXECUTION",
+              "number": "1",
+              "description": "(char)'1' 期权执行"
+            },
+            {
+              "name": "OTC",
+              "number": "2",
+              "description": "(char)'2' OTC成交"
+            },
+            {
+              "name": "EFP_DERIVED",
+              "number": "3",
+              "description": "(char)'3' 期转现衍生成交"
+            },
+            {
+              "name": "COMBINATION_DERIVED",
+              "number": "4",
+              "description": "(char)'4' 组合衍生成交"
+            }
+          ]
+        }
+      ],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "TradeTypeEnum",
+          "longName": "TradeTypeEnum",
+          "fullName": "jupiter.trader.ctp.v1.TradeTypeEnum",
+          "description": "成交类型类型",
+          "hasExtensions": false,
+          "hasFields": false,
+          "extensions": [],
+          "fields": []
+        }
+      ],
+      "services": []
+    },
+    {
       "name": "jupiter/trader/ctp/v1/instrument.proto",
       "description": "",
       "package": "jupiter.trader.ctp.v1",
@@ -911,6 +969,291 @@
               "type": "uint32",
               "longType": "uint32",
               "fullType": "uint32",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": []
+    },
+    {
+      "name": "jupiter/trader/ctp/v1/investor_position_detail.proto",
+      "description": "",
+      "package": "jupiter.trader.ctp.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": false,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "InvestorPositionDetail",
+          "longName": "InvestorPositionDetail",
+          "fullName": "jupiter.trader.ctp.v1.InvestorPositionDetail",
+          "description": "投资者持仓明细",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "UUID",
+              "description": "消息uuid",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "brokerID",
+              "description": "经纪公司代码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "investorID",
+              "description": "投资者代码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "instrumentID",
+              "description": "合约代码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "direction",
+              "description": "买卖",
+              "label": "",
+              "type": "Direction",
+              "longType": "DirectionEnum.Direction",
+              "fullType": "jupiter.trader.ctp.v1.DirectionEnum.Direction",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "hedgeFlag",
+              "description": "投机套保标志",
+              "label": "",
+              "type": "HedgeFlag",
+              "longType": "HedgeFlagEnum.HedgeFlag",
+              "fullType": "jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "openDate",
+              "description": "开仓日期",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "tradeID",
+              "description": "成交编号",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "volume",
+              "description": "数量",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "openPrice",
+              "description": "开仓价",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "tradeType",
+              "description": "成交类型",
+              "label": "",
+              "type": "TradeType",
+              "longType": "TradeTypeEnum.TradeType",
+              "fullType": "jupiter.trader.ctp.v1.TradeTypeEnum.TradeType",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "combInstrumentID",
+              "description": "组合合约代码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchangeID",
+              "description": "交易所代码",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "closeProfitByDate",
+              "description": "逐日盯市平仓盈亏",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "closeProfitByTrade",
+              "description": "逐笔对冲平仓盈亏",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "positionProfitByDate",
+              "description": "逐日盯市持仓盈亏",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "positionProfitByTrade",
+              "description": "逐笔对冲持仓盈亏",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "margin",
+              "description": "投资者保证金",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchMargin",
+              "description": "交易所保证金",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "marginRateByMoney",
+              "description": "保证金率",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "marginRateByVolume",
+              "description": "保证金率",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "closeVolume",
+              "description": "平仓量",
+              "label": "",
+              "type": "uint32",
+              "longType": "uint32",
+              "fullType": "uint32",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "closeAmount",
+              "description": "平仓金额",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "lastSettlementPrice",
+              "description": "昨结算价",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "settlementPrice",
+              "description": "结算价",
+              "label": "",
+              "type": "double",
+              "longType": "double",
+              "fullType": "double",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "tradingDay",
+              "description": "交易日",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
               "ismap": false,
               "defaultValue": ""
             }
@@ -2602,39 +2945,6 @@
           ]
         },
         {
-          "name": "TradeType",
-          "longName": "Trade.TradeType",
-          "fullName": "jupiter.trader.ctp.v1.Trade.TradeType",
-          "description": "成交类型类型",
-          "values": [
-            {
-              "name": "COMMON",
-              "number": "0",
-              "description": "(char)'0' 普通成交"
-            },
-            {
-              "name": "OPTIONS_EXECUTION",
-              "number": "1",
-              "description": "(char)'1' 期权执行"
-            },
-            {
-              "name": "OTC",
-              "number": "2",
-              "description": "(char)'2' OTC成交"
-            },
-            {
-              "name": "EFP_DERIVED",
-              "number": "3",
-              "description": "(char)'3' 期转现衍生成交"
-            },
-            {
-              "name": "COMBINATION_DERIVED",
-              "number": "4",
-              "description": "(char)'4' 组合衍生成交"
-            }
-          ]
-        },
-        {
           "name": "TradingRole",
           "longName": "Trade.TradingRole",
           "fullName": "jupiter.trader.ctp.v1.Trade.TradingRole",
@@ -2874,8 +3184,8 @@
               "description": "成交类型",
               "label": "",
               "type": "TradeType",
-              "longType": "Trade.TradeType",
-              "fullType": "jupiter.trader.ctp.v1.Trade.TradeType",
+              "longType": "TradeTypeEnum.TradeType",
+              "fullType": "jupiter.trader.ctp.v1.TradeTypeEnum.TradeType",
               "ismap": false,
               "defaultValue": ""
             },

@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+import "jupiter/trader/ctp/v1/direction.proto";
+import "jupiter/trader/ctp/v1/hedge_flag.proto";
+import "jupiter/trader/ctp/v1/trade_type.proto";
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 投资者持仓明细
+message InvestorPositionDetail {
+  // 消息uuid
+  string UUID = 1;
+  // 经纪公司代码
+  string brokerID = 2;
+  // 投资者代码
+  string investorID = 3;
+  // 合约代码
+  string instrumentID = 4;
+  // 买卖
+  jupiter.trader.ctp.v1.DirectionEnum.Direction direction = 5;
+  // 投机套保标志
+  jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag hedgeFlag = 6;
+  // 开仓日期
+  string openDate = 7;
+  // 成交编号
+  string tradeID = 8;
+  // 数量
+  uint32 volume = 9;
+  // 开仓价
+  double openPrice = 10;
+  // 成交类型
+  jupiter.trader.ctp.v1.TradeTypeEnum.TradeType tradeType = 11;
+  // 组合合约代码
+  string combInstrumentID = 12;
+  // 交易所代码
+  string exchangeID = 13;
+  // 逐日盯市平仓盈亏
+  double closeProfitByDate = 14;
+  // 逐笔对冲平仓盈亏
+  double closeProfitByTrade = 15;
+  // 逐日盯市持仓盈亏
+  double positionProfitByDate = 16;
+  // 逐笔对冲持仓盈亏
+  double positionProfitByTrade = 17;
+  // 投资者保证金
+  double margin = 18;
+  // 交易所保证金
+  double exchMargin = 19;
+  // 保证金率
+  double marginRateByMoney = 20;
+  // 保证金率
+  double marginRateByVolume = 21;
+  // 平仓量
+  uint32 closeVolume = 22;
+  // 平仓金额
+  double closeAmount = 23;
+  // 昨结算价
+  double lastSettlementPrice = 24;
+  // 结算价
+  double settlementPrice = 25;
+  // 交易日
+  string tradingDay = 26;
+}

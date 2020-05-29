@@ -96,6 +96,39 @@
 
 
 
+== jupiter/trader/ctp/v1/trade_type.proto
+
+
+
+=== TradeTypeEnum
+成交类型类型
+
+
+
+
+
+
+[[TradeTypeEnum.TradeType]]
+=== TradeTypeEnum.TradeType
+
+
+|=====================================
+|*Name* |*Number* |*Description*
+
+|COMMON |0 |(char)'0' 普通成交
+
+|OPTIONS_EXECUTION |1 |(char)'1' 期权执行
+
+|OTC |2 |(char)'2' OTC成交
+
+|EFP_DERIVED |3 |(char)'3' 期转现衍生成交
+
+|COMBINATION_DERIVED |4 |(char)'4' 组合衍生成交
+
+|=====================================
+
+
+
 == jupiter/trader/ctp/v1/instrument.proto
 
 
@@ -339,6 +372,76 @@
 |HISTORY |1 |(char)'2' 历史持仓
 
 |=====================================
+
+
+
+== jupiter/trader/ctp/v1/investor_position_detail.proto
+
+
+
+=== InvestorPositionDetail
+投资者持仓明细
+
+
+|===========================================
+|*Field* |*Type* |*Label* |*Description*
+
+|UUID | <<string,string>> | |消息uuid
+
+|brokerID | <<string,string>> | |经纪公司代码
+
+|investorID | <<string,string>> | |投资者代码
+
+|instrumentID | <<string,string>> | |合约代码
+
+|direction | <<jupiter.trader.ctp.v1.DirectionEnum.Direction,DirectionEnum.Direction>> | |买卖
+
+|hedgeFlag | <<jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag,HedgeFlagEnum.HedgeFlag>> | |投机套保标志
+
+|openDate | <<string,string>> | |开仓日期
+
+|tradeID | <<string,string>> | |成交编号
+
+|volume | <<uint32,uint32>> | |数量
+
+|openPrice | <<double,double>> | |开仓价
+
+|tradeType | <<jupiter.trader.ctp.v1.TradeTypeEnum.TradeType,TradeTypeEnum.TradeType>> | |成交类型
+
+|combInstrumentID | <<string,string>> | |组合合约代码
+
+|exchangeID | <<string,string>> | |交易所代码
+
+|closeProfitByDate | <<double,double>> | |逐日盯市平仓盈亏
+
+|closeProfitByTrade | <<double,double>> | |逐笔对冲平仓盈亏
+
+|positionProfitByDate | <<double,double>> | |逐日盯市持仓盈亏
+
+|positionProfitByTrade | <<double,double>> | |逐笔对冲持仓盈亏
+
+|margin | <<double,double>> | |投资者保证金
+
+|exchMargin | <<double,double>> | |交易所保证金
+
+|marginRateByMoney | <<double,double>> | |保证金率
+
+|marginRateByVolume | <<double,double>> | |保证金率
+
+|closeVolume | <<uint32,uint32>> | |平仓量
+
+|closeAmount | <<double,double>> | |平仓金额
+
+|lastSettlementPrice | <<double,double>> | |昨结算价
+
+|settlementPrice | <<double,double>> | |结算价
+
+|tradingDay | <<string,string>> | |交易日
+
+|===========================================
+
+
+
 
 
 
@@ -931,7 +1034,7 @@
 
 |tradeTime | <<string,string>> | |成交时间
 
-|tradeType | <<jupiter.trader.ctp.v1.Trade.TradeType,Trade.TradeType>> | |成交类型
+|tradeType | <<jupiter.trader.ctp.v1.TradeTypeEnum.TradeType,TradeTypeEnum.TradeType>> | |成交类型
 
 |priceSource | <<jupiter.trader.ctp.v1.Trade.PriceSource,Trade.PriceSource>> | |成交价来源
 
@@ -967,26 +1070,6 @@
 |BUY |1 |(char)'1' 买委托价
 
 |SELL |2 |(char)'2' 卖委托价
-
-|=====================================
-
-
-[[Trade.TradeType]]
-=== Trade.TradeType
-成交类型类型
-
-|=====================================
-|*Name* |*Number* |*Description*
-
-|COMMON |0 |(char)'0' 普通成交
-
-|OPTIONS_EXECUTION |1 |(char)'1' 期权执行
-
-|OTC |2 |(char)'2' OTC成交
-
-|EFP_DERIVED |3 |(char)'3' 期转现衍生成交
-
-|COMBINATION_DERIVED |4 |(char)'4' 组合衍生成交
 
 |=====================================
 

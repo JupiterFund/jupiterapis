@@ -180,7 +180,9 @@ Container for enum describing possible markets.
 | date | [uint32](#uint32) |  | 自然日 yyyyMMdd |
 | time | [uint32](#uint32) |  | HHmmssSSS |
 | timestamp | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | 由日期和数据生成时间构成的时间对应的UNIX时间戳及纳秒信息 |
-| tradeDate | [uint32](#uint32) |  | 交易日期 yyyyMMdd 上交所数据规范 |
+| tradeDate | [uint32](#uint32) |  | 交易日期 yyyyMMdd
+
+* 上交所数据规范 |
 | preClosePx | [uint64](#uint64) |  | 昨收盘价 N(9,3) |
 | openPx | [uint64](#uint64) |  | 开盘价 N(9,3) |
 | highPx | [uint64](#uint64) |  | 最高价 N(9,3) |

@@ -27,6 +27,14 @@
   
   
 
+- [jupiter/trader/ctp/v1/trade_type.proto](#jupiter/trader/ctp/v1/trade_type.proto)
+    - [TradeTypeEnum](#jupiter.trader.ctp.v1.TradeTypeEnum)
+  
+    - [TradeTypeEnum.TradeType](#jupiter.trader.ctp.v1.TradeTypeEnum.TradeType)
+  
+  
+  
+
 - [jupiter/trader/ctp/v1/instrument.proto](#jupiter/trader/ctp/v1/instrument.proto)
     - [Instrument](#jupiter.trader.ctp.v1.Instrument)
   
@@ -43,6 +51,13 @@
   
     - [InvestorPosition.PosiDirection](#jupiter.trader.ctp.v1.InvestorPosition.PosiDirection)
     - [InvestorPosition.PositionDate](#jupiter.trader.ctp.v1.InvestorPosition.PositionDate)
+  
+  
+  
+
+- [jupiter/trader/ctp/v1/investor_position_detail.proto](#jupiter/trader/ctp/v1/investor_position_detail.proto)
+    - [InvestorPositionDetail](#jupiter.trader.ctp.v1.InvestorPositionDetail)
+  
   
   
   
@@ -83,7 +98,6 @@
     - [Trade](#jupiter.trader.ctp.v1.Trade)
   
     - [Trade.PriceSource](#jupiter.trader.ctp.v1.Trade.PriceSource)
-    - [Trade.TradeType](#jupiter.trader.ctp.v1.Trade.TradeType)
     - [Trade.TradingRole](#jupiter.trader.ctp.v1.Trade.TradingRole)
   
   
@@ -212,6 +226,47 @@
 | SPECULATION | 0 | (char)&#39;1&#39; 投机 |
 | ARBITRAGE | 1 | (char)&#39;2&#39; 套利 |
 | HEDGE | 2 | (char)&#39;3&#39; 套保 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="jupiter/trader/ctp/v1/trade_type.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## jupiter/trader/ctp/v1/trade_type.proto
+
+
+
+<a name="jupiter.trader.ctp.v1.TradeTypeEnum"></a>
+
+### TradeTypeEnum
+成交类型类型
+
+
+
+
+
+ 
+
+
+<a name="jupiter.trader.ctp.v1.TradeTypeEnum.TradeType"></a>
+
+### TradeTypeEnum.TradeType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| COMMON | 0 | (char)&#39;0&#39; 普通成交 |
+| OPTIONS_EXECUTION | 1 | (char)&#39;1&#39; 期权执行 |
+| OTC | 2 | (char)&#39;2&#39; OTC成交 |
+| EFP_DERIVED | 3 | (char)&#39;3&#39; 期转现衍生成交 |
+| COMBINATION_DERIVED | 4 | (char)&#39;4&#39; 组合衍生成交 |
 
 
  
@@ -408,6 +463,62 @@
 | TODAY | 0 | (char)&#39;1&#39; 今日持仓 |
 | HISTORY | 1 | (char)&#39;2&#39; 历史持仓 |
 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="jupiter/trader/ctp/v1/investor_position_detail.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## jupiter/trader/ctp/v1/investor_position_detail.proto
+
+
+
+<a name="jupiter.trader.ctp.v1.InvestorPositionDetail"></a>
+
+### InvestorPositionDetail
+投资者持仓明细
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| UUID | [string](#string) |  | 消息uuid |
+| brokerID | [string](#string) |  | 经纪公司代码 |
+| investorID | [string](#string) |  | 投资者代码 |
+| instrumentID | [string](#string) |  | 合约代码 |
+| direction | [DirectionEnum.Direction](#jupiter.trader.ctp.v1.DirectionEnum.Direction) |  | 买卖 |
+| hedgeFlag | [HedgeFlagEnum.HedgeFlag](#jupiter.trader.ctp.v1.HedgeFlagEnum.HedgeFlag) |  | 投机套保标志 |
+| openDate | [string](#string) |  | 开仓日期 |
+| tradeID | [string](#string) |  | 成交编号 |
+| volume | [uint32](#uint32) |  | 数量 |
+| openPrice | [double](#double) |  | 开仓价 |
+| tradeType | [TradeTypeEnum.TradeType](#jupiter.trader.ctp.v1.TradeTypeEnum.TradeType) |  | 成交类型 |
+| combInstrumentID | [string](#string) |  | 组合合约代码 |
+| exchangeID | [string](#string) |  | 交易所代码 |
+| closeProfitByDate | [double](#double) |  | 逐日盯市平仓盈亏 |
+| closeProfitByTrade | [double](#double) |  | 逐笔对冲平仓盈亏 |
+| positionProfitByDate | [double](#double) |  | 逐日盯市持仓盈亏 |
+| positionProfitByTrade | [double](#double) |  | 逐笔对冲持仓盈亏 |
+| margin | [double](#double) |  | 投资者保证金 |
+| exchMargin | [double](#double) |  | 交易所保证金 |
+| marginRateByMoney | [double](#double) |  | 保证金率 |
+| marginRateByVolume | [double](#double) |  | 保证金率 |
+| closeVolume | [uint32](#uint32) |  | 平仓量 |
+| closeAmount | [double](#double) |  | 平仓金额 |
+| lastSettlementPrice | [double](#double) |  | 昨结算价 |
+| settlementPrice | [double](#double) |  | 结算价 |
+| tradingDay | [string](#string) |  | 交易日 |
+
+
+
+
+
+ 
 
  
 
@@ -839,7 +950,7 @@
 | volume | [uint32](#uint32) |  | 数量 |
 | tradeDate | [string](#string) |  | 成交时期 |
 | tradeTime | [string](#string) |  | 成交时间 |
-| tradeType | [Trade.TradeType](#jupiter.trader.ctp.v1.Trade.TradeType) |  | 成交类型 |
+| tradeType | [TradeTypeEnum.TradeType](#jupiter.trader.ctp.v1.TradeTypeEnum.TradeType) |  | 成交类型 |
 | priceSource | [Trade.PriceSource](#jupiter.trader.ctp.v1.Trade.PriceSource) |  | 成交价来源 |
 | traderID | [string](#string) |  | 交易所交易员代码 |
 | orderLocalID | [string](#string) |  | 本地报单编号 |
@@ -866,21 +977,6 @@
 | LAST_PRICE | 0 | (char)&#39;0&#39; 前成交价 |
 | BUY | 1 | (char)&#39;1&#39; 买委托价 |
 | SELL | 2 | (char)&#39;2&#39; 卖委托价 |
-
-
-
-<a name="jupiter.trader.ctp.v1.Trade.TradeType"></a>
-
-### Trade.TradeType
-成交类型类型
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| COMMON | 0 | (char)&#39;0&#39; 普通成交 |
-| OPTIONS_EXECUTION | 1 | (char)&#39;1&#39; 期权执行 |
-| OTC | 2 | (char)&#39;2&#39; OTC成交 |
-| EFP_DERIVED | 3 | (char)&#39;3&#39; 期转现衍生成交 |
-| COMBINATION_DERIVED | 4 | (char)&#39;4&#39; 组合衍生成交 |
 
 
 

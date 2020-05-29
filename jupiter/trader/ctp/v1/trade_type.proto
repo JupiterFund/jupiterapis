@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package jupiter.trader.ctp.v1;
+
+option java_multiple_files = true;
+option java_package = "com.nodeunify.jupiter.trader.ctp.v1";
+
+// 成交类型类型
+message TradeTypeEnum {
+  enum TradeType {
+    // (char)'0' 普通成交
+    COMMON = 0;
+    // (char)'1' 期权执行
+    OPTIONS_EXECUTION = 1;
+    // (char)'2' OTC成交
+    OTC = 2;
+    // (char)'3' 期转现衍生成交
+    EFP_DERIVED = 3;
+    // (char)'4' 组合衍生成交
+    COMBINATION_DERIVED = 4;
+  };
+}
