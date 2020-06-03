@@ -3438,6 +3438,354 @@
         }
       ],
       "services": []
+    },
+    {
+      "name": "jupiter/trader/ctp/v1/query_service.proto",
+      "description": "",
+      "package": "jupiter.trader.ctp.v1",
+      "hasEnums": false,
+      "hasExtensions": false,
+      "hasMessages": true,
+      "hasServices": true,
+      "enums": [],
+      "extensions": [],
+      "messages": [
+        {
+          "name": "QueryDepthMarketDataField",
+          "longName": "QueryDepthMarketDataField",
+          "fullName": "jupiter.trader.ctp.v1.QueryDepthMarketDataField",
+          "description": "行情数据查询请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "instrumentID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchangeID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QueryInstrumentField",
+          "longName": "QueryInstrumentField",
+          "fullName": "jupiter.trader.ctp.v1.QueryInstrumentField",
+          "description": "合约查询请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "instrumentID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchangeID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchangeInstID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "productID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QueryInvestorPositionDetailField",
+          "longName": "QueryInvestorPositionDetailField",
+          "fullName": "jupiter.trader.ctp.v1.QueryInvestorPositionDetailField",
+          "description": "持仓明细查询请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "brokerID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "investorID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "instrumentID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchangeID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "investUnitID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QueryInvestorPositionField",
+          "longName": "QueryInvestorPositionField",
+          "fullName": "jupiter.trader.ctp.v1.QueryInvestorPositionField",
+          "description": "持仓查询请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "brokerID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "investorID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "instrumentID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "exchangeID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "investUnitID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "QueryTradingAccountField",
+          "longName": "QueryTradingAccountField",
+          "fullName": "jupiter.trader.ctp.v1.QueryTradingAccountField",
+          "description": "交易账户查询请求",
+          "hasExtensions": false,
+          "hasFields": true,
+          "extensions": [],
+          "fields": [
+            {
+              "name": "brokerID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "investorID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "currencyID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "bizType",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "accountID",
+              "description": "",
+              "label": "",
+              "type": "string",
+              "longType": "string",
+              "fullType": "string",
+              "ismap": false,
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "QueryService",
+          "longName": "QueryService",
+          "fullName": "jupiter.trader.ctp.v1.QueryService",
+          "description": "Trader CTP 查询服务",
+          "methods": [
+            {
+              "name": "QueryInstrument",
+              "description": "合约查询",
+              "requestType": "QueryInstrumentField",
+              "requestLongType": "QueryInstrumentField",
+              "requestFullType": "jupiter.trader.ctp.v1.QueryInstrumentField",
+              "requestStreaming": false,
+              "responseType": "Instrument",
+              "responseLongType": "Instrument",
+              "responseFullType": "jupiter.trader.ctp.v1.Instrument",
+              "responseStreaming": false
+            },
+            {
+              "name": "QueryInvestorPosition",
+              "description": "持仓查询",
+              "requestType": "QueryInvestorPositionField",
+              "requestLongType": "QueryInvestorPositionField",
+              "requestFullType": "jupiter.trader.ctp.v1.QueryInvestorPositionField",
+              "requestStreaming": false,
+              "responseType": "InvestorPosition",
+              "responseLongType": "InvestorPosition",
+              "responseFullType": "jupiter.trader.ctp.v1.InvestorPosition",
+              "responseStreaming": true
+            },
+            {
+              "name": "QueryInvestorPositionDetail",
+              "description": "持仓明细查询",
+              "requestType": "QueryInvestorPositionDetailField",
+              "requestLongType": "QueryInvestorPositionDetailField",
+              "requestFullType": "jupiter.trader.ctp.v1.QueryInvestorPositionDetailField",
+              "requestStreaming": false,
+              "responseType": "InvestorPositionDetail",
+              "responseLongType": "InvestorPositionDetail",
+              "responseFullType": "jupiter.trader.ctp.v1.InvestorPositionDetail",
+              "responseStreaming": true
+            },
+            {
+              "name": "QueryTradingAccount",
+              "description": "交易账户查询",
+              "requestType": "QueryTradingAccountField",
+              "requestLongType": "QueryTradingAccountField",
+              "requestFullType": "jupiter.trader.ctp.v1.QueryTradingAccountField",
+              "requestStreaming": false,
+              "responseType": "TradingAccount",
+              "responseLongType": "TradingAccount",
+              "responseFullType": "jupiter.trader.ctp.v1.TradingAccount",
+              "responseStreaming": false
+            },
+            {
+              "name": "QueryDepthMarketData",
+              "description": "行情数据查询",
+              "requestType": "QueryDepthMarketDataField",
+              "requestLongType": "QueryDepthMarketDataField",
+              "requestFullType": "jupiter.trader.ctp.v1.QueryDepthMarketDataField",
+              "requestStreaming": false,
+              "responseType": "FutureData",
+              "responseLongType": ".jupiter.datastream.v1.FutureData",
+              "responseFullType": "jupiter.datastream.v1.FutureData",
+              "responseStreaming": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "scalarValueTypes": [

@@ -1156,6 +1156,110 @@
 
 
 
+== jupiter/trader/ctp/v1/query_service.proto
+
+
+
+=== QueryDepthMarketDataField
+行情数据查询请求
+
+
+|===========================================
+|*Field* |*Type* |*Label* |*Description*
+
+|instrumentID | <<string,string>> | |
+
+|exchangeID | <<string,string>> | |
+
+|===========================================
+
+
+
+=== QueryInstrumentField
+合约查询请求
+
+
+|===========================================
+|*Field* |*Type* |*Label* |*Description*
+
+|instrumentID | <<string,string>> | |
+
+|exchangeID | <<string,string>> | |
+
+|exchangeInstID | <<string,string>> | |
+
+|productID | <<string,string>> | |
+
+|===========================================
+
+
+
+=== QueryInvestorPositionDetailField
+持仓明细查询请求
+
+
+|===========================================
+|*Field* |*Type* |*Label* |*Description*
+
+|brokerID | <<string,string>> | |
+
+|investorID | <<string,string>> | |
+
+|instrumentID | <<string,string>> | |
+
+|exchangeID | <<string,string>> | |
+
+|investUnitID | <<string,string>> | |
+
+|===========================================
+
+
+
+=== QueryInvestorPositionField
+持仓查询请求
+
+
+|===========================================
+|*Field* |*Type* |*Label* |*Description*
+
+|brokerID | <<string,string>> | |
+
+|investorID | <<string,string>> | |
+
+|instrumentID | <<string,string>> | |
+
+|exchangeID | <<string,string>> | |
+
+|investUnitID | <<string,string>> | |
+
+|===========================================
+
+
+
+=== QueryTradingAccountField
+交易账户查询请求
+
+
+|===========================================
+|*Field* |*Type* |*Label* |*Description*
+
+|brokerID | <<string,string>> | |
+
+|investorID | <<string,string>> | |
+
+|currencyID | <<string,string>> | |
+
+|bizType | <<string,string>> | |
+
+|accountID | <<string,string>> | |
+
+|===========================================
+
+
+
+
+
+
 == Scalar Value Types
 
 |==============================================================

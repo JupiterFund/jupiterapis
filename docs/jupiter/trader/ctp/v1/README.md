@@ -112,6 +112,18 @@
   
   
 
+- [jupiter/trader/ctp/v1/query_service.proto](#jupiter/trader/ctp/v1/query_service.proto)
+    - [QueryDepthMarketDataField](#jupiter.trader.ctp.v1.QueryDepthMarketDataField)
+    - [QueryInstrumentField](#jupiter.trader.ctp.v1.QueryInstrumentField)
+    - [QueryInvestorPositionDetailField](#jupiter.trader.ctp.v1.QueryInvestorPositionDetailField)
+    - [QueryInvestorPositionField](#jupiter.trader.ctp.v1.QueryInvestorPositionField)
+    - [QueryTradingAccountField](#jupiter.trader.ctp.v1.QueryTradingAccountField)
+  
+  
+  
+    - [QueryService](#jupiter.trader.ctp.v1.QueryService)
+  
+
 - [Scalar Value Types](#scalar-value-types)
 
 
@@ -1062,6 +1074,127 @@
  
 
  
+
+ 
+
+
+
+<a name="jupiter/trader/ctp/v1/query_service.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## jupiter/trader/ctp/v1/query_service.proto
+
+
+
+<a name="jupiter.trader.ctp.v1.QueryDepthMarketDataField"></a>
+
+### QueryDepthMarketDataField
+行情数据查询请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| instrumentID | [string](#string) |  |  |
+| exchangeID | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="jupiter.trader.ctp.v1.QueryInstrumentField"></a>
+
+### QueryInstrumentField
+合约查询请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| instrumentID | [string](#string) |  |  |
+| exchangeID | [string](#string) |  |  |
+| exchangeInstID | [string](#string) |  |  |
+| productID | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="jupiter.trader.ctp.v1.QueryInvestorPositionDetailField"></a>
+
+### QueryInvestorPositionDetailField
+持仓明细查询请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| brokerID | [string](#string) |  |  |
+| investorID | [string](#string) |  |  |
+| instrumentID | [string](#string) |  |  |
+| exchangeID | [string](#string) |  |  |
+| investUnitID | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="jupiter.trader.ctp.v1.QueryInvestorPositionField"></a>
+
+### QueryInvestorPositionField
+持仓查询请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| brokerID | [string](#string) |  |  |
+| investorID | [string](#string) |  |  |
+| instrumentID | [string](#string) |  |  |
+| exchangeID | [string](#string) |  |  |
+| investUnitID | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="jupiter.trader.ctp.v1.QueryTradingAccountField"></a>
+
+### QueryTradingAccountField
+交易账户查询请求
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| brokerID | [string](#string) |  |  |
+| investorID | [string](#string) |  |  |
+| currencyID | [string](#string) |  |  |
+| bizType | [string](#string) |  |  |
+| accountID | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="jupiter.trader.ctp.v1.QueryService"></a>
+
+### QueryService
+Trader CTP 查询服务
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| QueryInstrument | [QueryInstrumentField](#jupiter.trader.ctp.v1.QueryInstrumentField) | [Instrument](#jupiter.trader.ctp.v1.Instrument) | 合约查询 |
+| QueryInvestorPosition | [QueryInvestorPositionField](#jupiter.trader.ctp.v1.QueryInvestorPositionField) | [InvestorPosition](#jupiter.trader.ctp.v1.InvestorPosition) stream | 持仓查询 |
+| QueryInvestorPositionDetail | [QueryInvestorPositionDetailField](#jupiter.trader.ctp.v1.QueryInvestorPositionDetailField) | [InvestorPositionDetail](#jupiter.trader.ctp.v1.InvestorPositionDetail) stream | 持仓明细查询 |
+| QueryTradingAccount | [QueryTradingAccountField](#jupiter.trader.ctp.v1.QueryTradingAccountField) | [TradingAccount](#jupiter.trader.ctp.v1.TradingAccount) | 交易账户查询 |
+| QueryDepthMarketData | [QueryDepthMarketDataField](#jupiter.trader.ctp.v1.QueryDepthMarketDataField) | [.jupiter.datastream.v1.FutureData](#jupiter.datastream.v1.FutureData) | 行情数据查询 |
 
  
 

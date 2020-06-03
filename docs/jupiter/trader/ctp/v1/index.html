@@ -455,6 +455,41 @@
             </ul>
           </li>
         
+          
+          <li>
+            <a href="#jupiter/trader/ctp/v1/query_service.proto">jupiter/trader/ctp/v1/query_service.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.QueryDepthMarketDataField"><span class="badge">M</span>QueryDepthMarketDataField</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.QueryInstrumentField"><span class="badge">M</span>QueryInstrumentField</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.QueryInvestorPositionDetailField"><span class="badge">M</span>QueryInvestorPositionDetailField</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.QueryInvestorPositionField"><span class="badge">M</span>QueryInvestorPositionField</a>
+                </li>
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.QueryTradingAccountField"><span class="badge">M</span>QueryTradingAccountField</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#jupiter.trader.ctp.v1.QueryService"><span class="badge">S</span>QueryService</a>
+                </li>
+              
+            </ul>
+          </li>
+        
         <li><a href="#scalar-value-types">Scalar Value Types</a></li>
       </ul>
     </div>
@@ -3423,6 +3458,299 @@
       
 
       
+    
+      
+      <div class="file-heading">
+        <h2 id="jupiter/trader/ctp/v1/query_service.proto">jupiter/trader/ctp/v1/query_service.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="jupiter.trader.ctp.v1.QueryDepthMarketDataField">QueryDepthMarketDataField</h3>
+        <p>行情数据查询请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="jupiter.trader.ctp.v1.QueryInstrumentField">QueryInstrumentField</h3>
+        <p>合约查询请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeInstID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>productID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="jupiter.trader.ctp.v1.QueryInvestorPositionDetailField">QueryInvestorPositionDetailField</h3>
+        <p>持仓明细查询请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investUnitID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="jupiter.trader.ctp.v1.QueryInvestorPositionField">QueryInvestorPositionField</h3>
+        <p>持仓查询请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>instrumentID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exchangeID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investUnitID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="jupiter.trader.ctp.v1.QueryTradingAccountField">QueryTradingAccountField</h3>
+        <p>交易账户查询请求</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>brokerID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>investorID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>currencyID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>bizType</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>accountID</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="jupiter.trader.ctp.v1.QueryService">QueryService</h3>
+        <p>Trader CTP 查询服务</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>QueryInstrument</td>
+                <td><a href="#jupiter.trader.ctp.v1.QueryInstrumentField">QueryInstrumentField</a></td>
+                <td><a href="#jupiter.trader.ctp.v1.Instrument">Instrument</a></td>
+                <td><p>合约查询</p></td>
+              </tr>
+            
+              <tr>
+                <td>QueryInvestorPosition</td>
+                <td><a href="#jupiter.trader.ctp.v1.QueryInvestorPositionField">QueryInvestorPositionField</a></td>
+                <td><a href="#jupiter.trader.ctp.v1.InvestorPosition">InvestorPosition</a> stream</td>
+                <td><p>持仓查询</p></td>
+              </tr>
+            
+              <tr>
+                <td>QueryInvestorPositionDetail</td>
+                <td><a href="#jupiter.trader.ctp.v1.QueryInvestorPositionDetailField">QueryInvestorPositionDetailField</a></td>
+                <td><a href="#jupiter.trader.ctp.v1.InvestorPositionDetail">InvestorPositionDetail</a> stream</td>
+                <td><p>持仓明细查询</p></td>
+              </tr>
+            
+              <tr>
+                <td>QueryTradingAccount</td>
+                <td><a href="#jupiter.trader.ctp.v1.QueryTradingAccountField">QueryTradingAccountField</a></td>
+                <td><a href="#jupiter.trader.ctp.v1.TradingAccount">TradingAccount</a></td>
+                <td><p>交易账户查询</p></td>
+              </tr>
+            
+              <tr>
+                <td>QueryDepthMarketData</td>
+                <td><a href="#jupiter.trader.ctp.v1.QueryDepthMarketDataField">QueryDepthMarketDataField</a></td>
+                <td><a href="#jupiter.datastream.v1.FutureData">.jupiter.datastream.v1.FutureData</a></td>
+                <td><p>行情数据查询</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
     
 
     <h2 id="scalar-value-types">Scalar Value Types</h2>
