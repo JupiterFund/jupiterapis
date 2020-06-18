@@ -1,6 +1,6 @@
 {
   "name": "jupiterapis",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/JupiterFund/jupiterapis)  [![](https://jitpack.io/v/JupiterFund/jupiterapis.svg)](https://jitpack.io/#JupiterFund/jupiterapis)  [![](https://jitci.com/gh/JupiterFund/jupiterapis/svg)](https://jitci.com/gh/JupiterFund/jupiterapis)",
   "main": "index.js",
   "directories": {

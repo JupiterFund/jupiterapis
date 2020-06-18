@@ -39,10 +39,17 @@ message QueryInvestorPositionDetailField {
 
 // 交易账户查询请求
 message QueryTradingAccountField {
+  // 业务类型类型
+  enum BizType {
+    // (char)'1' 期货
+    Future = 0;
+    // (char)'2' 证券
+    Stock = 1;
+  };
   string brokerID = 1;
   string investorID = 2;
   string currencyID = 3;
-  string bizType = 4;
+  BizType bizType = 4;
   string accountID = 5;
 }
 

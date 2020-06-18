@@ -119,6 +119,7 @@
     - [QueryInvestorPositionField](#jupiter.trader.ctp.v1.QueryInvestorPositionField)
     - [QueryTradingAccountField](#jupiter.trader.ctp.v1.QueryTradingAccountField)
   
+    - [QueryTradingAccountField.BizType](#jupiter.trader.ctp.v1.QueryTradingAccountField.BizType)
   
   
     - [QueryService](#jupiter.trader.ctp.v1.QueryService)
@@ -1169,7 +1170,7 @@
 | brokerID | [string](#string) |  |  |
 | investorID | [string](#string) |  |  |
 | currencyID | [string](#string) |  |  |
-| bizType | [string](#string) |  |  |
+| bizType | [QueryTradingAccountField.BizType](#jupiter.trader.ctp.v1.QueryTradingAccountField.BizType) |  |  |
 | accountID | [string](#string) |  |  |
 
 
@@ -1177,6 +1178,18 @@
 
 
  
+
+
+<a name="jupiter.trader.ctp.v1.QueryTradingAccountField.BizType"></a>
+
+### QueryTradingAccountField.BizType
+业务类型类型
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| Future | 0 | (char)&#39;1&#39; 期货 |
+| Stock | 1 | (char)&#39;2&#39; 证券 |
+
 
  
 

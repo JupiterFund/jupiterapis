@@ -3447,7 +3447,26 @@
       "hasExtensions": false,
       "hasMessages": true,
       "hasServices": true,
-      "enums": [],
+      "enums": [
+        {
+          "name": "BizType",
+          "longName": "QueryTradingAccountField.BizType",
+          "fullName": "jupiter.trader.ctp.v1.QueryTradingAccountField.BizType",
+          "description": "业务类型类型",
+          "values": [
+            {
+              "name": "Future",
+              "number": "0",
+              "description": "(char)'1' 期货"
+            },
+            {
+              "name": "Stock",
+              "number": "1",
+              "description": "(char)'2' 证券"
+            }
+          ]
+        }
+      ],
       "extensions": [],
       "messages": [
         {
@@ -3697,9 +3716,9 @@
               "name": "bizType",
               "description": "",
               "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
+              "type": "BizType",
+              "longType": "QueryTradingAccountField.BizType",
+              "fullType": "jupiter.trader.ctp.v1.QueryTradingAccountField.BizType",
               "ismap": false,
               "defaultValue": ""
             },
