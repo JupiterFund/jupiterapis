@@ -1249,7 +1249,7 @@
 
 |currencyID | <<string,string>> | |
 
-|bizType | <<string,string>> | |
+|bizType | <<jupiter.trader.ctp.v1.QueryTradingAccountField.BizType,QueryTradingAccountField.BizType>> | |
 
 |accountID | <<string,string>> | |
 
@@ -1257,6 +1257,20 @@
 
 
 
+
+
+[[QueryTradingAccountField.BizType]]
+=== QueryTradingAccountField.BizType
+业务类型类型
+
+|=====================================
+|*Name* |*Number* |*Description*
+
+|Future |0 |(char)'1' 期货
+
+|Stock |1 |(char)'2' 证券
+
+|=====================================
 
 
 
