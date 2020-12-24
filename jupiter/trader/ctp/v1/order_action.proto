@@ -40,7 +40,7 @@ message OrderAction {
   // 前置编号
   uint32 frontID = 8;
   // 会话编号
-  uint32 sessionID = 9;
+  sint32 sessionID = 9;
   // 交易所代码
   string exchangeID = 10;
   // 报单编号
